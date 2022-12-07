@@ -1,0 +1,1 @@
+const BurgerIngredient = require('../models/BurgerIngredient');
