@@ -1,5 +1,9 @@
 const PizzaIngredient = require('../models/PizzaIngredient');
 
+async function getAllPizzaIngredient(){
+    return PizzaIngredient.find({});
+}
+
 async function createPizzaIngredient(pizzaIngredient){
     return await PizzaIngredient.create(pizzaIngredient);
 };
@@ -9,6 +13,7 @@ async function countPizzaIngredients(){
 };
 
 module.exports = {
+    getAllPizzaIngredient,
     createPizzaIngredient,
     countPizzaIngredients
 };
