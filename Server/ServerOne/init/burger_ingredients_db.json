@@ -1,0 +1,184 @@
+[
+    {
+        "name": "Regular Bun",
+        "weight": 70,
+        "type": "Buns",
+        "picture": "/assets/regularbun.png",
+        "description": "Soft roll Bun."
+    },
+    {
+        "name": "Sesame Seed Bun",
+        "weight": 80,
+        "type": "Buns",
+        "picture": "/assets/sesameseedbun.png",
+        "description": "Regular Bun with Sesame seeds."
+    },
+    {
+        "name": "Brioche Bun",
+        "weight": 90,
+        "type": "Buns",
+        "picture": "/assets/bricohebun.png",
+        "description": "French style Brioche Bun."
+    },
+    {
+        "name": "Mayonnaise",
+        "weight": 20,
+        "type": "Sauce",
+        "picture": "/assets/mayonnaise.png",
+        "description": "Japanesse style sweet and sour Mayonnaise."
+    },
+    {
+        "name": "Ketchup",
+        "weight": 20,
+        "type": "Sauce",
+        "picture": "/assets/ketchup.png",
+        "description": "Regular einz Ketchup."
+    },
+    {
+        "name": "Burger Sauce",
+        "weight": 20,
+        "type": "Sauce",
+        "picture": "/assets/burgersauce.png",
+        "description": "Burger Sauce tat best compliments the burger."
+    },
+    {
+        "name": "Mustard",
+        "weight": 20,
+        "type": "Sauce",
+        "picture": "/assets/mustard.png",
+        "description": "French style dijon mustard."
+    },
+    {
+        "name": "Emental",
+        "weight": 35,
+        "type": "Cheese",
+        "picture": "/assets/emental.png",
+        "description": "French Emental Cheese."
+    },
+    {
+        "name": "Gouda",
+        "weight": 35,
+        "type": "Cheese",
+        "picture": "/assets/gouda.png",
+        "description": "French Gouda Cheese."
+    },
+    {
+        "name": "Cheddar",
+        "weight": 35,
+        "type": "Cheese",
+        "picture": "/assets/cheddar.png",
+        "description": "American Cheddar Cheese."
+    },
+    {
+        "name": "Beef",
+        "weight": 100,
+        "type": "Meat",
+        "picture": "/assets/beef.png",
+        "description": "Black Angus Beef patty."
+    },
+    {
+        "name": "Chicken",
+        "weight": 100,
+        "type": "Meat",
+        "picture": "/assets/chicken.png",
+        "description": "Local High Quality Chicken patty."
+    },
+    {
+        "name": "Fish",
+        "weight": 100,
+        "type": "Meat",
+        "picture": "/assets/fish.png",
+        "description": "High Quality White Fish patty."
+    },
+    {
+        "name": "Bacon",
+        "weight": 60,
+        "type": "Meat",
+        "picture": "/assets/bacon.png",
+        "description": "Smoked Bacon Strips."
+    },
+    {
+        "name": "Egg",
+        "weight": 20,
+        "type": "Other",
+        "picture": "/assets/egg.png",
+        "description": "Fresh Egg."
+    },
+    {
+        "name": "Tomatoes",
+        "weight": 30,
+        "type": "Vegetable",
+        "picture": "/assets/tomatoes.png",
+        "description": "Fresh Tomatoes."
+    },
+    {
+        "name": "Mushrooms",
+        "weight": 30,
+        "type": "Vegetable",
+        "picture": "/assets/mushrooms.png",
+        "description": "Fresh Mushrooms"
+    },
+    {
+        "name": "Pickles",
+        "weight": 30,
+        "type": "Vegetable",
+        "picture": "/assets/pickles.png",
+        "description": "Sour Pickles."
+    },
+    {
+        "name": "Lettuce",
+        "weight": 30,
+        "type": "Vegetable",
+        "picture": "/assets/lettuce.png",
+        "description": "Fresh Lettuce."
+    },
+    {
+        "name": "Green Peppers",
+        "weight": 30,
+        "type": "Vegetable",
+        "picture": "/assets/greenpeppers.png",
+        "description": "Fresh Green Peppers."
+    },
+    {
+        "name": "Onions",
+        "weight": 30,
+        "type": "Vegetable",
+        "picture": "/assets/onions.png",
+        "description": "Fresh Onions."
+    },
+    {
+        "name": "Caramelized Onions",
+        "weight": 30,
+        "type": "Vegetable",
+        "picture": "/assets/caramelizedonions.png",
+        "description": "Cooked Caramelized Onions."
+    },
+    {
+        "name": "Fried Onions",
+        "weight": 30,
+        "type": "Vegetable",
+        "picture": "/assets/friedonions.png",
+        "description": "Crispy Fried Onions."
+    },
+    {
+        "name": "Flaky Salt",
+        "weight": 10,
+        "type": "Condiment",
+        "picture": "/assets/flakysalt.png",
+        "description":  "Flaky Salt condiment."
+    },
+    {
+        "name": "Black Pepper",
+        "weight": 10,
+        "type": "Condiment",
+        "picture": "/assets/blackpepper.png",
+        "description": "Black Pepper condiment."
+    },
+    {
+        "name": "Garlic Pouder",
+        "weight": 10,
+        "type": "Condiment",
+        "picture": "/assets/garlicpouder.png",
+        "description": "Garlic Pouder condiment."
+    }
+]

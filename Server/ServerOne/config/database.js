@@ -11,6 +11,6 @@ module.exports = async (app) => {
     }catch(err){
         console.error('Error initiazlizing database!');
         console.error(err.message);
-        process.emit(1);
+        process.exit(1);
     };
 };

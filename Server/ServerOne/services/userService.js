@@ -1,11 +1,11 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const { getByName } = require('../services/roleService');
+const { getRoleByName } = require('../services/roleService');
 
 async function createAdmin(){
     const hashedPassword = await bcrypt.hash('admin', 10);
-    const adminId = (await getByName('Admin'))._id;
-    const userId = (await getByName('User'))._id;
+    const adminId = (await getRoleByName('Admin'))._id;
+    const userId = (await getRoleByName('User'))._id;
 
     await User.create({
         username: 'admin',

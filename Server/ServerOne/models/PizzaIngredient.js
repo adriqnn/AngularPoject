@@ -8,9 +8,9 @@ const pizzaIngredientSchema = new Schema({
         minlength: [3, 'The name must be at least 3 characters long!']
     },
     weight:{
-        type: String,
+        type: Number,
         required: true,
-        min: [5, 'The weight must be at least 5 grams!']
+        min: [3, 'The weight must be at least 3 grams!']
     },
     type: {
         type: String,
