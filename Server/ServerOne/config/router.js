@@ -15,6 +15,6 @@ module.exports = (app) => {
     app.use('/burger', burgerController);
     app.use('/burgerIngredient', burgerIngredientController);
     app.use('/pizza', pizzaController);
-    app.use('/pizzaIngredient', pizzaIngredientController);
+    app.use('/pizzaIngredient', auth(), pizzaIngredientController);
     app.use('/profile', profileController);
-}
+};
