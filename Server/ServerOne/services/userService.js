@@ -1,6 +1,5 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const bcrypt = require('bcrypt');
 const { getRoleByName } = require('../services/roleService');
 const { blacklistToken } = require('../services/tokenBklacklistService');
 const JWT_SECRET = 'zxc';
