@@ -15,8 +15,8 @@ authController.post('/register', async (req, res) => {
         if(validator.isEmail(req.body.email) == false){
             throw new Error('Invalid email!')
         };
-        if(req.body.password.length < 4){
-            throw new Error('Password must be at least 4 characters long!');
+        if(req.body.password.length < 3){
+            throw new Error('Password must be at least 3 characters long!');
         };
         if(req.body.password != req.body.repass){
             throw new Error('Passwords don\'t match!');

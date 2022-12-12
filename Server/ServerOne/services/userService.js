@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const { getRoleByName } = require('../services/roleService');
 const { blacklistToken } = require('../services/tokenBklacklistService');
 const JWT_SECRET = 'zxc';
@@ -76,8 +77,10 @@ function verifyTokenAuth(token){
     return jwt.verify(token, JWT_SECRET);
 };
 
+const bsonToJson = (data) => { return JSON.parse(JSON.stringify(data)) };
 const removePassword = (data) =>{
-    const { hashedPassword, __v, ...userData } = data;
+    const transformData = bsonToJson(data);
+    const { hashedPassword, __v, ...userData } = transformData;
     return userData;
 };
 
