@@ -4,35 +4,39 @@
             <img class="car logo" src="/assets/pictures/main/animepizza.png" alt="pizza-logo">
             <img class="logo" src="/assets/pictures/main/animeburger.png" alt="burger-logo">
         </a>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="font-size: 18px;font-family: cursive;">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/">Pizza</a>
+                    <a class="nav-link" routerLink="/pizzas">Pizzas</a>
                 </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="/pizzaIngredient">Pizza Ingredients</a>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/">Pizza Ingredients</a>
+                    <a class="nav-link" routerLink="/burgers">Burgers</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/">Burger</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/">Burger Ingredients</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/auth/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/auth/register">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/auth/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/auth/logout">Logout</a>
-                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="/burgerIngredient">Burger Ingredients</a>
+                </li> -->
+                <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/auth/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/auth/register">Register</a>
+                    </li>
+                </ng-container>
+                <ng-template #loggedInTemplate>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/auth/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/auth/logout">Logout</a>
+                    </li>
+                </ng-template>
             </ul>
         </div>
     </div>

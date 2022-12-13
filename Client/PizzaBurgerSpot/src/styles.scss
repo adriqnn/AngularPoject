@@ -132,6 +132,13 @@ body {
   h4.card-title {
     font-size: 1.2rem;
   }
+
+  h5.card-title2 {
+    font-size: 20px;
+    font-style: italic;
+    justify-content: center;
+    font-family: cursive;
+  }
   
   h5.mt-4 {
     font-size: 1rem;
@@ -144,12 +151,12 @@ body {
     border: none;
     color: white;
     background: rgba(0, 0, 0, 0.6);
-    box-shadow: 0px -2px 20px -1px #f4c537, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
+    box-shadow: 0px -2px 20px -1px #13c7eb, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
   }
   
   .card.h-100:hover .card-body, .card.h-100:hover {
     cursor: grab;
-    box-shadow: 0px -2px 20px -1px #64c3fff5, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
+    box-shadow: 0px -2px 20px -1px #19da49f5, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
   }
   
   .card.h-100:hover {
@@ -157,9 +164,9 @@ body {
   }
   
   .card-body {
-    box-shadow: 0px 5px 9px -2px #f4c537, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
-    text-align: left;
-    padding: 10px 10px 10px 40px!important;
+    box-shadow: 0px 5px 9px -2px #12d4ee, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
+    text-align: center;
+    padding: 10px 10px 10px 10px!important;
   }
   
   .card-body i {
@@ -167,7 +174,8 @@ body {
   }
   
   .card-info {
-    display: inline-block;
+    display: block;
+    font-family: cursive;
   }
   
   .line {
@@ -248,19 +256,21 @@ body {
     margin-bottom: 15px;
   }
   
-  .no-trips {
+  .no-ingredients {
     width: 100%;
     margin-top: 30px;
     text-align: center;
   }
   
-  .no-trips img {
+  .no-ingredients img {
     box-shadow: 0px -2px 20px -1px #f4c537, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
+    width: 80%;
+    height: auto;
     opacity: 0.95;
     margin-bottom: 10px;
   }
   
-  .no-trips p.lead {
+  .no-ingredients p.lead {
     color: white;
     width: 100%;
     text-align: center;
@@ -361,16 +371,17 @@ body {
     height: 55px;
   }
   
-  .trip {
+  .ingredient {
     text-align: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    padding-top: 75px;
+    padding-top: 100px;
+    padding-bottom: 10px;
     color: white;
   }
   
-  .trip p.lead {
-    margin-bottom: 0;
+  .ingredient p.lead {
+    margin-bottom: 0px;
   }
   
   .driver {

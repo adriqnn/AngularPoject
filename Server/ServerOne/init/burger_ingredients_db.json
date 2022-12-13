@@ -17,7 +17,7 @@
         "name": "Brioche Bun",
         "weight": 90,
         "type": "Buns",
-        "picture": "/assets/pictures/burger-ingredients/bricohebun.png",
+        "picture": "/assets/pictures/burger-ingredients/briochebun.png",
         "description": "French style Brioche Bun."
     },
     {
@@ -96,6 +96,13 @@
         "type": "Meat",
         "picture": "/assets/pictures/burger-ingredients/bacon.png",
         "description": "Smoked Bacon Strips."
+    },
+    {
+        "name": "Pepperoni",
+        "weight": 90,
+        "type": "Meat",
+        "picture": "/assets/pictures/burger-ingredients/pepperoni.png",
+        "description": "Italian Pepperoni sausage."
     },
     {
         "name": "Egg",

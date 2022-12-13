@@ -1,7 +1,7 @@
 const PizzaIngredient = require('../models/PizzaIngredient');
 
 async function getAllPizzaIngredient(){
-    return PizzaIngredient.find({});
+    return PizzaIngredient.find({}).sort({_id: 1});
 }
 
 async function createPizzaIngredient(pizzaIngredient){

@@ -84,6 +84,20 @@
         "description": "Crispy and Smoked Bacon."
     },
     {
+        "name": "Chicken",
+        "weight": 90,
+        "type": "Meat",
+        "picture": "/assets/pictures/pizza-ingredients/chicken.png",
+        "description": "Smoked Chicken."
+    },
+    {
+        "name": "Tomatoes",
+        "weight": 50,
+        "type": "Vegetable",
+        "picture": "/assets/pictures/pizza-ingredients/tomatoes.png",
+        "description": "Fresh Tomatoes."
+    },
+    {
         "name": "Mushrooms",
         "weight": 50,
         "type": "Vegetable",
