@@ -5,6 +5,9 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { BurgerIngredientComponent } from './burger/burger-ingredient/burger-ingredient.component';
+import { BurgerComponent } from './burger/burger/burger.component';
+import { AboutComponent } from './core/about/about.component';
+import { ContactsComponent } from './core/contacts/contacts.component';
 import { HomeComponent } from './core/home/home.component';
 import { PizzaIngredientComponent } from './pizza/pizza-ingredient/pizza-ingredient.component';
 import { PizzaComponent } from './pizza/pizza/pizza.component';
@@ -13,7 +16,29 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {
+        title: 'Home',
+        loginRequired: false
+    }
+  },
+  {
+    path: 'about',
+    pathMatch: 'full',
+    component: AboutComponent,
+    data: {
+        title: 'About',
+        loginRequired: false
+    }
+  },
+  {
+    path: 'contacts',
+    pathMatch: 'full',
+    component: ContactsComponent,
+    data: {
+        title: 'Contacts',
+        loginRequired: false
+    }
   },
   {
     path:'auth/login',
@@ -48,7 +73,7 @@ const routes: Routes = [
     }
 },
 {
-    path:'pizzaIngredient',
+    path:'pizzas/pizzaIngredient',
     component: PizzaIngredientComponent,
     data: {
         title: 'Pizza Ingredients',
@@ -56,7 +81,7 @@ const routes: Routes = [
     }
 },
 {
-    path:'burgerIngredient',
+    path:'burgers/burgerIngredient',
     component: BurgerIngredientComponent,
     data: {
         title: 'Burger Ingredients',
@@ -67,11 +92,18 @@ const routes: Routes = [
     path:'pizzas',
     component: PizzaComponent,
     data: {
-        title: 'Pizza',
+        title: 'Pizzas',
         loginRequired: false
     }
 },
-
+{
+    path:'burgers',
+    component: BurgerComponent,
+    data: {
+        title: 'Burgers',
+        loginRequired: false
+    }
+},
 ];
 
 @NgModule({
