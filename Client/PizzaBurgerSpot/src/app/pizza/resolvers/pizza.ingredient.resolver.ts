@@ -4,7 +4,6 @@ import { Observable } from "rxjs";
 import { IPizzaIngredient } from "src/app/shared/interfaces";
 import { PizzaService } from "../pizza.service";
 
-
 @Injectable({
     providedIn: 'root'
 })
@@ -18,6 +17,16 @@ export class PizzaIngredientResolver implements Resolve<IPizzaIngredient | null>
             this.router.navigate(['/not-found']);
             return null;
         }
+        const result = this.pizzaService.loadPizzaIngredient(pizzaIngredientId);
+        result.subscribe({
+            next: (value) => {
+                return value;
+            },
+            error: (err) => {
+                this.router.navigate(['/not-found']);
+                return null;
+            }
+        });
         return this.pizzaService.loadPizzaIngredient(pizzaIngredientId);
     };
 };

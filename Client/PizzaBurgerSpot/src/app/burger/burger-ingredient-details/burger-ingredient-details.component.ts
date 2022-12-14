@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IBurgerIngredient } from 'src/app/shared/interfaces';
 
 @Component({
@@ -12,7 +12,7 @@ export class BurgerIngredientDetailsComponent implements OnInit {
   burgerIngredient: IBurgerIngredient | null = null;
   errorFetchingData = false;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.burgerIngredient = this.activatedRoute.snapshot.data?.['burgerIngredient'];

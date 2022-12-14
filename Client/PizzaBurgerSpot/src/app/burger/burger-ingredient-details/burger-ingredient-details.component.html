@@ -1,27 +1,25 @@
 <main>
-    <section class="py-5 details" id="burger-ingredient-details-page">
+    <section class="py-5 details" id="pizza-ingredient-details-page">
         <div class="container">
-            <p class="line"></p>
-            <div class="buddies-info">
-                <i class="fas fa-users buddies"></i>
-                <h5>Shared trip Buddies</h5>
-                <div>                  
-                </div>
-                <h5>Driver: <span></span> </h5>
+            <div class="item-details">
+                <h1 style="font-family: cursive;">Pizza Burger Spot</h1>
             </div>
             <p class="line"></p>
-            <h5 class="brand">Car Brand: <span class="lead"></span></h5>
-            <div class="trip-info">
+            <div class="item-info">
+                <p class="lead" style="font-style: italic;font-family: cursive;">Pizza Ingrediet Details for {{burgerIngredient?.name}}:</p>
+                <p class="lead" style="font-size: 18px; font-style: italic;font-family: cursive;">Type: {{burgerIngredient?.type}}</p>
+                <p class="lead" style="font-size: 18px; font-style: italic;font-family: cursive;">Weight: {{burgerIngredient?.weight}}</p>
+            </div>
+            <p class="line"></p>
+            <div class="item-picanddesc">
                 <div>
                     <img class="img-fluid rounded"
                         src={{burgerIngredient?.picture}}
-                        alt="car-image">
+                        alt="pizza-ingredient-image">
                 </div>
-                <div class="trip-desc">
-                    <h5>Information about the trip</h5>
-                    <textarea class="lead"
-                        disabled></textarea>
-                    <h5>Price: <span class="lead"></span> BGN</h5>
+                <div class="item-desc">
+                    <h5 style="font-style: italic;font-family: cursive;">Description</h5>
+                    <textarea class="lead" disabled style="font-style: italic;font-family: cursive;">{{burgerIngredient?.description}}</textarea>
                 </div>
             </div>
         </div>

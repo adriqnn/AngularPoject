@@ -4,7 +4,6 @@ import { Observable } from "rxjs";
 import { IBurgerIngredient } from "src/app/shared/interfaces";
 import { BurgerService } from "../burger.service";
 
-
 @Injectable({
     providedIn: 'root'
 })
@@ -18,6 +17,16 @@ export class BurgerIngredientResolver implements Resolve<IBurgerIngredient | nul
             this.router.navigate(['/not-found']);
             return null;
         };
-        return this.burgerService.loadBurgerIngredient(burgerIngredientId);
+        const result = this.burgerService.loadBurgerIngredient(burgerIngredientId);
+        result.subscribe({
+            next: (value) => {
+                return value;
+            },
+            error: (err) => {
+                this.router.navigate(['/not-found']);
+                return null;
+            }
+        });
+        return null;
     };
 };

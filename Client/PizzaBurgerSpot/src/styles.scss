@@ -470,14 +470,14 @@ body {
     padding-top: 40px;
   }
   
-  .details-item-info {
+  .item-picanddesc {
     display: flex;
     border-radius: 5px;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 35px;
   }
   
-  .details-item-info .img-fluid.rounded {
+  .item-picanddesc .img-fluid.rounded {
     max-width: 500px;
     transition: all .2s ease-in-out;
     box-shadow: 0px -2px 20px -1px #00bbff, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
@@ -488,23 +488,25 @@ body {
     box-shadow: 0px -2px 20px -1px #64ff86f5, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
   }
   
-  .details-item-info div:first-child {
+  .item-picanddesc div:first-child {
     width: 80%;
     display: flex;
     justify-content: space-between
   }
   
-  .trip-desc {
+  .item-desc {
     width: 55%!important;
     text-align: center;
     word-wrap: break-word;
-    padding: 1%;
+    padding: 0%;
   }
   
-  .trip-desc textarea {
-    height: 170px;
+  .item-desc textarea {
+    box-shadow: 0px -2px 20px -1px #00bbff, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
+    border-radius: 25px;
+    height: 300px;
   }
-  .trip-desc > h5 {
+  .item-desc > h5 {
     font-size: 22px;
   }
   
@@ -543,27 +545,27 @@ body {
   }
   
   @media only screen and (max-width: 1000px) {
-    .details-item-info {
+    .item-picanddesc {
       display: flex;
       border-radius: 5px;
       flex-wrap: wrap;
       align-content: center;
       justify-content: center;
     }
-    .details-item-info>div img {
+    .item-picanddesc>div img {
       width: 90%;
     }
-    .details-item-info>div {
+    .item-picanddesc>div {
       justify-content: space-around!important;
     }
-    .trip-desc {
+    .item-desc {
       width: 63%!important;
       text-align: center;
     }
     .brand {
       text-align: center;
     }
-    .brand>span.lead, .trip-desc span.lead {
+    .brand>span.lead, .item-desc span.lead {
       width: 100%;
       word-wrap: break-word;
     }
