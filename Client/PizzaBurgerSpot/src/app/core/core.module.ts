@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -15,7 +16,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ContactsComponent
+    ContactsComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,

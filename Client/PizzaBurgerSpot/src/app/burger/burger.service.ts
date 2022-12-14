@@ -15,4 +15,8 @@ export class BurgerService {
   loadBurgerIngredients(){
     return this.httpClient.get<IBurgerIngredient[]>(`${apiURL}/burgerIngredient`)
   };
+
+  loadBurgerIngredient(id: string){
+    return this.httpClient.get<IBurgerIngredient>(`${apiURL}/burgerIngredient/${id}`);
+  };
 };

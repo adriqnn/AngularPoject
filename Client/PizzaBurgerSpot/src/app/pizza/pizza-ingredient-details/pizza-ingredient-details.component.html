@@ -1,1 +1,29 @@
-<p>pizza-ingredient-details works!</p>
+<main>
+    <section class="py-5 details" id="pizza-ingredient-details-page">
+        <div class="container">
+            <div class="item-details">
+                <h1 style="font-family: cursive;">Pizza Burger Spot</h1>
+            </div>
+            <p class="line"></p>
+            <div class="item-info">
+                <p class="lead" style="font-style: italic;font-family: cursive;">Pizza Ingrediet Details for {{pizzaIngredient?.name}}:</p>
+                <p class="lead" style="font-size: 18px; font-style: italic;font-family: cursive;">Type: {{pizzaIngredient?.type}}</p>
+                <p class="lead" style="font-size: 18px; font-style: italic;font-family: cursive;">Weight: {{pizzaIngredient?.weight}}</p>
+            </div>
+            <p class="line"></p>
+            <div class="details-item-info">
+                <div>
+                    <img class="img-fluid rounded"
+                        src={{pizzaIngredient?.picture}}
+                        alt="pizza-ingredient-image">
+                </div>
+                <div class="trip-desc">
+                    <h5>Information about the trip</h5>
+                    <textarea class="lead"
+                        disabled></textarea>
+                    <h5>Price: <span class="lead"></span> BGN</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IBurgerIngredient } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-burger-ingredient-details',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BurgerIngredientDetailsComponent implements OnInit {
 
-  constructor() { }
+  burgerIngredient: IBurgerIngredient | null = null;
+  errorFetchingData = false;
+
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-  }
-
-}
+    this.burgerIngredient = this.activatedRoute.snapshot.data?.['burgerIngredient'];
+  };
+};

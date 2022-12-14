@@ -15,4 +15,8 @@ export class PizzaService {
   loadPizzaIngredients(){
     return this.httpClient.get<IPizzaIngredient[]>(`${apiURL}/pizzaIngredient`);
   };
+
+  loadPizzaIngredient(id: string){
+    return this.httpClient.get<IPizzaIngredient>(`${apiURL}/pizzaIngredient/${id}`);
+  };
 };
