@@ -18,6 +18,7 @@ export class PizzaIngredientResolver implements Resolve<IPizzaIngredient | null>
             return null;
         }
         const result = this.pizzaService.loadPizzaIngredient(pizzaIngredientId);
+        console.log(result);
         result.subscribe({
             next: (value) => {
                 return value;
@@ -27,6 +28,6 @@ export class PizzaIngredientResolver implements Resolve<IPizzaIngredient | null>
                 return null;
             }
         });
-        return this.pizzaService.loadPizzaIngredient(pizzaIngredientId);
+        return result;
     };
 };

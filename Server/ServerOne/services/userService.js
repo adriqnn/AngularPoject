@@ -43,13 +43,13 @@ async function register(username, email, password){
 };
 
 async function login(username, password){
-    const user = await User.findOne({email}).collation({locale: 'en', strength: 2});
+    const user = await User.findOne({username}).collation({locale: 'en', strength: 2});
     if(!user){
-        throw new Error('Incorrect email or password!');
+        throw new Error('Incorrect username or password!');
     };
     const match = await bcrypt.compare(password, user.hashedPassword);
     if(!match){
-        throw new Error('Incorrect email or password!');
+        throw new Error('Incorrect username or password!');
     };
     const token = createJWTToken(user);
     const safeUser = removePassword(user);
@@ -84,11 +84,19 @@ const removePassword = (data) =>{
     return userData;
 };
 
+function parseToken(token){
+    if(tokenBlacklist.has(token)){
+        throw new Error('Token is blacklisted!');
+    };
+    return jwt.verify(token, JWT_SECRET);
+};
+
 module.exports = {
     createAdmin,
     countUsers, 
     register,
     login,
     logout,
-    verifyTokenAuth
+    verifyTokenAuth,
+    parseToken
 };

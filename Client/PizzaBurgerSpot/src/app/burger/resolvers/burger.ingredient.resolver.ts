@@ -18,6 +18,7 @@ export class BurgerIngredientResolver implements Resolve<IBurgerIngredient | nul
             return null;
         };
         const result = this.burgerService.loadBurgerIngredient(burgerIngredientId);
+        console.log(result);
         result.subscribe({
             next: (value) => {
                 return value;
@@ -27,6 +28,6 @@ export class BurgerIngredientResolver implements Resolve<IBurgerIngredient | nul
                 return null;
             }
         });
-        return null;
+        return result;
     };
 };
