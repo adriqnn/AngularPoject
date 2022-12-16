@@ -3,19 +3,56 @@
         <div class="container login-page">
             <h1>Login</h1>
             <div class="login">
-                <form action="/auth/login" method="post">
+                <form #form="ngForm" (ngSubmit)="loginHandler(form)" >
+                    <ng-container *ngIf="errorMsg">
+                        <div class="form-group">
+                            <ng-container>{{removeMsg()}}</ng-container>
+                            <label for="error" style="color: red;">{{msg}}</label>
+                            <!-- <input type="text"  class="form-control" value=""> -->
+                        </div>
+                    </ng-container>
                     <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="text" class="form-control" id="email" placeholder="Enter email" name="email"
-                            value="">
+                        <label for="username">Username</label>
+                        <input type="text" #usernameInput="ngModel" ngModel required minlength="3" class="form-control" id="username" placeholder="Username" name="username"
+                            value=""
+                            [class.errorred]="usernameInput.touched && !usernameInput.valid">
                     </div>
+                    <ng-container *ngIf="usernameInput.touched">
+                        <ng-container *ngIf="usernameInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Username is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="usernameInput?.errors?.['minlength']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Username must be at least 3 characters!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password" name="password"
-                            value="">
+                        <input type="password" #passwordInput="ngModel" ngModel required minlength="3" class="form-control" id="password" placeholder="Password" name="password"
+                            value=""
+                            [class.errorred]="passwordInput.touched && !passwordInput.valid">
                     </div>
+                    <ng-container *ngIf="passwordInput.touched">
+                        <ng-container *ngIf="passwordInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Password is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="passwordInput?.errors?.['minlength']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Password must be at least 3 characters!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
                     <div class="form-group">
-                        <p>Not registered yet? <a href="/auth/register">Register Now!</a></p>
+                        <p>Not registered yet? <a routerLink="/auth/register" style="font-size:20px;color:greenyellow;">Register Now!</a></p>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

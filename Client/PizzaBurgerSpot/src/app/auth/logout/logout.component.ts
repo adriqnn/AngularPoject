@@ -14,15 +14,16 @@ export class LogoutComponent implements OnInit {
       next: (value) => {
         this.authService.user = null;
         console.log(value);
+        sessionStorage.clear();
         this.router.navigate(['/']);
       },
       error: (err) => {
         console.log(err.error.message);
+        this.router.navigate(['/']);
       }
-    })
-   }
+    });
+  };
 
   ngOnInit(): void {
-  }
-
-}
+  };
+};

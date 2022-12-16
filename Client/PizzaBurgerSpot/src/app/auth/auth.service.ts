@@ -19,11 +19,11 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   register(username: string, email: string, password: string, repass: string){
-    return this.http.post<IUser>(`${apiURL}/auth/register`, {username, email, password, repass});
+    return this.http.post<{user: IUser, token: string}>(`${apiURL}/auth/register`, {username, email, password, repass});
   };
 
   login(username: string, password: string){
-    return this.http.post<IUser>(`${apiURL}/auth/login`, {username, password});
+    return this.http.post<{user: IUser, token: string}>(`${apiURL}/auth/login`, {username, password});
   };
 
   logout(){

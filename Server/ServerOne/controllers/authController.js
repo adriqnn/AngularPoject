@@ -25,7 +25,7 @@ authController.post('/register', async (req, res) => {
         const user = userInfo[0];
         const token = userInfo[1];
         res.cookie(authCookieName, token, { httpOnly: true });
-        res.status(200).send(user);
+        res.status(200).send({user, token});
     }catch(err){
         const message = parseError(err);
         res.status(400).json({message});
@@ -38,7 +38,7 @@ authController.post('/login', async (req, res) => {
         const user = userInfo[0];
         const token = userInfo[1];
         res.cookie(authCookieName, token, { httpOnly: true });
-        res.status(200).send(user);
+        res.status(200).send({user, token});
     }catch(err){
         const message = parseError(err);
         res.status(400).json({message});
@@ -48,8 +48,10 @@ authController.post('/login', async (req, res) => {
 authController.post('/logout', async (req, res) => {
     try{
         const token = req.cookies[authCookieName];
+        console.log(token);
         const blacklistedToken = await logout(token);
-        res.clearCookie(authCookieName).status(204).send({message: 'Logged Out!'});
+        res.clearCookie(authCookieName);
+        res.status(204).send({message: 'Logged Out!'});
     }catch(err){
         const message = parseError(err);
         res.status(400).json({message});

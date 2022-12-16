@@ -18,7 +18,6 @@ export class PizzaIngredientResolver implements Resolve<IPizzaIngredient | null>
             return null;
         }
         const result = this.pizzaService.loadPizzaIngredient(pizzaIngredientId);
-        console.log(result);
         result.subscribe({
             next: (value) => {
                 return value;

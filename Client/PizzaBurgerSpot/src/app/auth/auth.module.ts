@@ -7,8 +7,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
     LoginComponent,
@@ -22,4 +20,6 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ]
 })
-export class AuthModule { }
+export class AuthModule {
+
+};

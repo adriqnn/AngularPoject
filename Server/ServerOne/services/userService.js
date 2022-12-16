@@ -23,27 +23,33 @@ async function countUsers(){
 };
 
 async function register(username, email, password){
-    const existing = await User.findOne({username}).collation({locale: 'en', strength: 2});
-    if(existing){
+    const existingUsername = await User.findOne({username}).collation({locale: 'en', strength: 2});
+    const existingEmail = await User.findOne({email}).collation({locale: 'en', strength: 2});
+    if(existingUsername){
+        throw new Error('Username is taken!');
+    };
+    if(existingEmail){
         throw new Error('Email is taken!');
     };
     const hashedPassword = await bcrypt.hash(password, 10);
     const userId = (await getRoleByName('User'))._id;
-    const user = await User.create({
+    let user = await User.create({
         username,
         email,
         hashedPassword,
         roles: [userId],
         createdAt: Date.now()
     });
+    user = await user.populate('roles');
     const token = createJWTToken(user);
     const safeUser = removePassword(user);
+    //safeUser['token'] = token;
     const userInfo = [safeUser, token];
     return userInfo;
 };
 
 async function login(username, password){
-    const user = await User.findOne({username}).collation({locale: 'en', strength: 2});
+    const user = await User.findOne({username}).collation({locale: 'en', strength: 2}).populate('roles');
     if(!user){
         throw new Error('Incorrect username or password!');
     };

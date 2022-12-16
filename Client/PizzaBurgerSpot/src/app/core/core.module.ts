@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ErrorComponent } from './error/error.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -17,7 +18,8 @@ import { ErrorComponent } from './error/error.component';
     HomeComponent,
     AboutComponent,
     ContactsComponent,
-    ErrorComponent
+    ErrorComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,

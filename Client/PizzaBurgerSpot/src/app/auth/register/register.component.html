@@ -4,26 +4,93 @@
             <h1>Register</h1>
             <div class="register">
                 <form #form="ngForm" (ngSubmit)="registerHandler(form)">
+                    <ng-container *ngIf="errorMsg">
+                        <div class="form-group">
+                            <ng-container>{{removeMsg()}}</ng-container>
+                            <label for="error" style="color: red;">{{msg}}</label>
+                            <!-- <input type="text"  class="form-control" value=""> -->
+                        </div>
+                    </ng-container>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" #usernameInput="ngModel" ngModel class="form-control" id="username" placeholder="Username" name="username"
-                            value="">
+                        <input type="text" #usernameInput="ngModel" ngModel required minlength="3" class="form-control" id="username" placeholder="Username" name="username"
+                            value=""
+                            [class.errorred]="usernameInput.touched && !usernameInput.valid">
                     </div>
+                    <ng-container *ngIf="usernameInput.touched">
+                        <ng-container *ngIf="usernameInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Username is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="usernameInput?.errors?.['minlength']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Username must be at least 3 characters!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" #emailInput="ngModel" ngModel class="form-control" id="email" placeholder="Email" name="email"
-                            value="">
+                        <input type="text" #emailInput="ngModel" ngModel required minlength="3" email class="form-control" id="email" placeholder="Email" name="email"
+                            value=""
+                            [class.errorred]="emailInput.touched && !emailInput.valid">
                     </div>
+                    <ng-container *ngIf="emailInput.touched">
+                        <ng-container *ngIf="emailInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Email is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="emailInput?.errors?.['minlength']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Email must be at least 3 characters!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="emailInput?.errors?.['email']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Email is not valid!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" #passwordInput="ngModel" ngModel class="form-control" id="password" placeholder="Password" name="password"
-                            value="">
+                        <input type="password" #passwordInput="ngModel" ngModel required minlength="3" class="form-control" id="password" placeholder="Password" name="password"
+                            value=""
+                            [class.errorred]="passwordInput.touched && !passwordInput.valid">
                     </div>
+                    <ng-container *ngIf="passwordInput.touched">
+                        <ng-container *ngIf="passwordInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Password is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="passwordInput?.errors?.['minlength']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Password must be at least 3 characters!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
                     <div class="form-group">
-                        <label for="rePassword">Repeat Password</label>
-                        <input type="password" #repassInput="ngModel" ngModel class="form-control" id="rePassword" placeholder="Repeat Password"
-                            name="repass" value="">
+                        <label for="rePassword">Confirm Password</label>
+                        <input type="password" #repassInput="ngModel" ngModel class="form-control" id="rePassword" placeholder="Confirm Password"
+                            name="repass" value=""
+                            [class.errorred]="repassInput.touched && passwordInput.value !== repassInput.value">
                     </div>
+                    <ng-container *ngIf="repassInput.touched">
+                        <ng-container *ngIf="passwordInput.value !== repassInput.value">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Passwords must match!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
                     <div class="form-group">
                         <p>Already have account? <a routerLink="/auth/login" style="font-size:20px;color:greenyellow;">Login Now!</a></p>
                     </div>
