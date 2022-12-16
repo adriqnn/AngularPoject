@@ -2,13 +2,18 @@
     <section class="container" id="pizzas-main">
         <header class="ingredient">
             <h1 style="font-family: cursive;">
-                <a routerLink="/pizzas/create">Add Pizza</a> 
-                <!-- |
-                <a routerLink="/pizzas">Pizza Pies</a>  -->
-                | 
+                <h1 style="font-family: cursive;">Pizza & Burger Spot</h1>
+                <p class="lead" style="font-style: italic;font-family: cursive;">We make the best Pizzas in town and here is a list of our Pizzas!</p>
+                <p> </p>
+                <ng-container *ngIf="user">
+                    <a routerLink="/pizzas/create">Add Pizza</a> 
+                    <!-- |
+                    <a routerLink="/pizzas">Pizza Pies</a>  -->
+                    | 
+                </ng-container>
                 <a routerLink="/pizzas/pizzaIngredient">Ingredients</a>
             </h1>
-            <p class="lead" style="font-style: italic;font-family: cursive;">Pizzas List:</p>
+            <p class="lead" style="font-style: italic;font-family: cursive; font-size: 22px">Pizzas List:</p>
         </header>
     </section>
 </main>

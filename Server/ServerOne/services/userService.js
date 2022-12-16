@@ -100,9 +100,9 @@ const removePassword = (data) =>{
 };
 
 function parseToken(token){
-    if(tokenBlacklist.has(token)){
-        throw new Error('Token is blacklisted!');
-    };
+    // if(tokenBlacklist.has(token)){
+    //     throw new Error('Token is blacklisted!');
+    // };
     return jwt.verify(token, JWT_SECRET);
 };
 

@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PizzaModule } from './pizza/pizza.module';
 import { BurgerModule } from './burger/burger.module';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     PizzaModule,
     BurgerModule
   ],
-  providers: [],
+  providers: [
+    appInterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

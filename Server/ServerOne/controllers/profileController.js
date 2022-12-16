@@ -4,7 +4,6 @@ const { parseError } = require('../util/parser');
 const profileController = require('express').Router();
 
 profileController.get('/:id', async (req, res) => {
-    console.log('here')
     try{
         const user = await getUserById(req.params.id);
         res.json(user);

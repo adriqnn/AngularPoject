@@ -12,6 +12,7 @@ import { AboutComponent } from './core/about/about.component';
 import { ContactsComponent } from './core/contacts/contacts.component';
 import { ErrorComponent } from './core/error/error.component';
 import { HomeComponent } from './core/home/home.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 import { PizzaIngredientDetailsComponent } from './pizza/pizza-ingredient-details/pizza-ingredient-details.component';
 import { PizzaIngredientComponent } from './pizza/pizza-ingredient/pizza-ingredient.component';
 import { PizzaComponent } from './pizza/pizza/pizza.component';
@@ -128,6 +129,14 @@ const routes: Routes = [
     },
     data: {
         title: 'Burgers',
+        loginRequired: false
+    }
+},
+{
+    path:'not-found',
+    component: NotFoundComponent,
+    data: {
+        title: 'NotFound',
         loginRequired: false
     }
 },

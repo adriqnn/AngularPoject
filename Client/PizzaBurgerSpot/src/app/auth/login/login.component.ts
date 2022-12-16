@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,14 +10,19 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
   };
 
   ngOnInit(): void {
+    const params = this.activatedRoute.queryParams.subscribe(params => {
+      this.redirectMsg = params['data'];
+      console.log(this.redirectMsg);
+    });
   };
 
   errorMsg: boolean = false;
   msg: string = '';
+  redirectMsg: string | undefined | null = null;
 
   removeMsg(){
     setTimeout(() => {
@@ -25,6 +30,8 @@ export class LoginComponent implements OnInit {
       this.msg = '';
     }, 3000);
   };
+
+
 
   loginHandler(form: NgForm): void{
     if(form.invalid){

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../shared/interfaces';
 
@@ -16,7 +17,7 @@ export class AuthService {
     return this.user !== null;
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   register(username: string, email: string, password: string, repass: string){
     return this.http.post<{user: IUser, token: string}>(`${apiURL}/auth/register`, {username, email, password, repass});
@@ -27,21 +28,24 @@ export class AuthService {
   };
 
   logout(){
-    return this.http.post<null>(`${apiURL}/auth/logout`, {});
+    return this.http.post<null>(`[authenticate]${apiURL}/auth/logout`, {});
   };
 
   getProfile(){
     const id = sessionStorage.getItem('id');
-    return this.http.get<IUser>(`${apiURL}/profile/${id}`);
+    return this.http.get<IUser>(`[authenticate]${apiURL}/profile/${id}`);
   };
 
   setProfile(){
     this.getProfile().subscribe({
       next: (user) => {
+        console.log(user);
         this.user = user;
       },
-      error: () => {
+      error: (err) => {
+        sessionStorage.clear();
         this.user = null;
+        this.router.navigate(['/auth/login'], {queryParams: {data: 'Please log in!'}});
       }
     })
   }

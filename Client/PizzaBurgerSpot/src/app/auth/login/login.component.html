@@ -11,6 +11,13 @@
                             <!-- <input type="text"  class="form-control" value=""> -->
                         </div>
                     </ng-container>
+                    <ng-container *ngIf="redirectMsg">
+                        <div class="form-group">
+                            <ng-container>{{removeMsg()}}</ng-container>
+                            <label for="error" style="color: red;">{{redirectMsg}}</label>
+                            <!-- <input type="text"  class="form-control" value=""> -->
+                        </div>
+                    </ng-container>
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" #usernameInput="ngModel" ngModel required minlength="3" class="form-control" id="username" placeholder="Username" name="username"

@@ -6,6 +6,7 @@ const homeController = require("../controllers/homeController");
 const pizzaController = require("../controllers/pizzaController");
 const pizzaIngredientController = require("../controllers/pizzaIngredientController");
 const profileController = require("../controllers/profileController");
+const session = require('../middlewares/session');
 const { auth } = require('../util');
 
 module.exports = (app) => {
@@ -16,5 +17,5 @@ module.exports = (app) => {
     app.use('/burgerIngredient', burgerIngredientController);
     app.use('/pizza', pizzaController);
     app.use('/pizzaIngredient', pizzaIngredientController);
-    app.use('/profile', profileController);
+    app.use('/profile', session(), profileController);
 };

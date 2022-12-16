@@ -1,8 +1,10 @@
 <main>
     <section class="profile col-md-6 text-center col-lg" id="profile-page">
         <div class="profile-container">
-            <img class="profile-img" src="/static/images/.png">
-            <p>Email: <span></span></p>
+            <img class="profile-img" src="/assets/pictures/main/profilepic.png">
+            <p style="font-style: italic;font-family: cursive; font-size: 20px; color:greenyellow">Username: {{user?.username}}<span></span></p>
+            <p style="font-style: italic;font-family: cursive; font-size: 20px; color:greenyellow">Email: {{user?.email}}<span></span></p>
+            <p style="font-style: italic;font-family: cursive; font-size: 18px; color:greenyellow">Created at: {{date}}<span></span></p>
         </div>
         <div class="profile-info">
             <p> <span></span> counts</p>
