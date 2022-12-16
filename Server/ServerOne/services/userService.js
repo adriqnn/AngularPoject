@@ -18,6 +18,15 @@ async function createAdmin(){
     });
 };
 
+async function getUserById(id){
+    const user = await User.findById(id);
+    if(!user){
+        throw new Error('You are not logged in!');
+    };
+    const safeUser = removePassword(user);
+    return safeUser;
+}
+
 async function countUsers(){
     return await User.count();
 };
@@ -100,6 +109,7 @@ function parseToken(token){
 module.exports = {
     createAdmin,
     countUsers, 
+    getUserById,
     register,
     login,
     logout,

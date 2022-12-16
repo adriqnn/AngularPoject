@@ -48,7 +48,6 @@ authController.post('/login', async (req, res) => {
 authController.post('/logout', async (req, res) => {
     try{
         const token = req.cookies[authCookieName];
-        console.log(token);
         const blacklistedToken = await logout(token);
         res.clearCookie(authCookieName);
         res.status(204).send({message: 'Logged Out!'});

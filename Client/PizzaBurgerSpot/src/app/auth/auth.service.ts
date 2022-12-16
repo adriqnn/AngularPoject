@@ -27,10 +27,22 @@ export class AuthService {
   };
 
   logout(){
-    return this.http.post<IUser>(`${apiURL}/auth/logout`, {});
+    return this.http.post<null>(`${apiURL}/auth/logout`, {});
   };
 
-  getProfile(id: string){
+  getProfile(){
+    const id = sessionStorage.getItem('id');
     return this.http.get<IUser>(`${apiURL}/profile/${id}`);
   };
+
+  setProfile(){
+    this.getProfile().subscribe({
+      next: (user) => {
+        this.user = user;
+      },
+      error: () => {
+        this.user = null;
+      }
+    })
+  }
 };

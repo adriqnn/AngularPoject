@@ -9,10 +9,12 @@ import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PizzaModule } from './pizza/pizza.module';
 import { BurgerModule } from './burger/burger.module';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthenticateComponent
   ],
   imports: [
     AuthModule,
