@@ -3,6 +3,7 @@ const validator = require('validator');
 const { register, login, logout } = require('../services/userService');
 const authController = require('express').Router();
 const { authCookieName } = require('../app-config');
+const session = require('../middlewares/session');
 
 authController.post('/register', async (req, res) => {
     try{
@@ -45,9 +46,10 @@ authController.post('/login', async (req, res) => {
     };
 });
 
-authController.post('/logout', async (req, res) => {
+authController.post('/logout', session(), async (req, res) => {
     try{
-        const token = req.cookies[authCookieName];
+        const tokenCookie = req.cookies[authCookieName];
+        const token = req.headers['x-authorization'];
         const blacklistedToken = await logout(token);
         res.clearCookie(authCookieName);
         res.status(204).send({message: 'Logged Out!'});
