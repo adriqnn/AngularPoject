@@ -1,1 +1,217 @@
-<p>burger-create works!</p>
+<main>
+    <section class="py-5" id="register-page">
+        <div class="container register-page">
+            <h1 style="font-family: cursive;">
+                <h1 style="font-family: cursive; color: gold; text-decoration: underline;">Pizza & Burger Spot</h1>
+                <p class="lead" style="font-style: italic;font-family: cursive;">Create a Burger here!</p>
+                <p> </p>
+                <p class="line"></p>
+            </h1>
+            <div class="register">
+                <form #form="ngForm" (ngSubmit)="createBurgerHandler(form)">
+                    <ng-container *ngIf="errorMsg">
+                        <div class="form-group">
+                            <ng-container>{{removeMsg()}}</ng-container>
+                            <label for="error" style="color: red;">{{msg}}</label>
+                            <!-- <input type="text"  class="form-control" value=""> -->
+                        </div>
+                    </ng-container>
+                    <div class="form-group">
+                        <label for="name">Burger Name</label>
+                        <input type="text" #nameInput="ngModel" ngModel required minlength="3" class="form-control" id="name" placeholder="Burger Name" name="name"
+                            value=""
+                            [class.errorred]="nameInput.touched && !nameInput.valid">
+                    </div>
+                    <ng-container *ngIf="nameInput.touched">
+                        <ng-container *ngIf="nameInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Burger name is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="nameInput?.errors?.['minlength']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Burger name must be at least 3 characters!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <div class="form-group">
+                        <label for="weight">Burger Weight</label>
+                        <input type="number" #weightInput="ngModel" ngModel required min="5" class="form-control" id="weight" placeholder="Burger Weight" name="weight"
+                            value=""
+                            [class.errorred]="weightInput.touched && !weightInput.valid">
+                    </div>
+                    <ng-container *ngIf="weightInput.touched">
+                        <ng-container *ngIf="weightInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Burger weight is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="weightInput?.errors?.['min']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Burger weight must be at least 5 grams!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <div class="form-group">
+                        <label for="description">Burger Description</label>
+                        <input type="text" #descriptionInput="ngModel" ngModel required minlength="3" class="form-control" id="description" placeholder="Burger Description" name="description"
+                            value=""
+                            [class.errorred]="descriptionInput.touched && !descriptionInput.valid">
+                    </div>
+                    <ng-container *ngIf="descriptionInput.touched">
+                        <ng-container *ngIf="descriptionInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Burger description is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="descriptionInput?.errors?.['minlength']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Burger description must be at least 3 characters!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <label>Bun</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="radio" #regularbunInput="ngModel" ngModel id="regularbun" name="bun" value="Regular Bun">
+                            <label for="regularbun">Regular Bun</label>
+                            <input type="radio" #sesameseedbunInput="ngModel" ngModel id="sesameseedbun" name="bun" value="Sesame Seed Bun">
+                            <label for="sesameseedbun">Sesame Seed Bun</label>    
+                        </div>
+                        <div>
+                            <input type="radio" #briochebunInput="ngModel" ngModel id="briochebun" name="bun" value="Brioche Bun">
+                            <label for="briochebun">Brioche Bun</label>
+                        </div>
+                    </div>
+                    <label>Sauce</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" #mayonnaiseInput="ngModel" ngModel id="mayonnaise" name="mayonnaise">
+                            <label for="mayonnaise">Mayonanaise</label>
+                            <input type="checkbox" #ketchupInput="ngModel" ngModel id="ketchup" name="ketchup">
+                            <label for="ketchup">Ketchup</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" #burgersauceInput="ngModel" ngModel id="burgersauce" name="burgersauce">
+                            <label for="burgersauce">Burger Sauce</label> 
+                            <input type="checkbox" #mustardInput="ngModel" ngModel id="mustard" name="mustard">
+                            <label for="mustard">Mustard</label>
+                        </div>
+                    </div>
+                    <label>Cheese</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" #ementalInput="ngModel" ngModel id="emental" name="emental">
+                            <label for="emental">Emental</label>
+                            <input type="checkbox" #goudaInput="ngModel" ngModel id="gouda" name="gouda">
+                            <label for="gouda">Gouda</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" #cheddarInput="ngModel" ngModel id="cheddar" name="cheddar">
+                            <label for="cheddar">Cheddar</label> 
+                        </div>
+                    </div>
+                    <label>Meat</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" #beefInput="ngModel" ngModel id="beef" name="beef">
+                            <label for="beef">Beef</label>
+                            <input type="checkbox" #chickenInput="ngModel" ngModel id="chicken" name="chicken">
+                            <label for="chicken">Chicken</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" #fishInput="ngModel" ngModel id="fish" name="fish">
+                            <label for="fish">Fish</label> 
+                            <input type="checkbox" #baconInput="ngModel" ngModel id="bacon" name="bacon">
+                            <label for="bacon">Bacon</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" #pepperoniInput="ngModel" ngModel id="pepperoni" name="pepperoni">
+                            <label for="pepperoni">Pepperoni</label>
+                        </div>
+                    </div>
+                    <label>Vegetables</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" #tomatoesInput="ngModel" ngModel id="tomatoes" name="tomatoes">
+                            <label for="tomatoes">Tomatoes</label>
+                            <input type="checkbox" #mushroomsInput="ngModel" ngModel id="mushrooms" name="mushrooms">
+                            <label for="mushrooms">Mushrooms</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" #picklesInput="ngModel" ngModel id="pickles" name="pickles">
+                            <label for="pickles">Pickles</label>
+                            <input type="checkbox" #lettuceInput="ngModel" ngModel id="lettuce" name="lettuce">
+                            <label for="lettuce">Lettuce</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" #greenpepperInput="ngModel" ngModel id="greenpepper" name="greenpepper">
+                            <label for="greenpepper">Green Peppers</label>
+                            <input type="checkbox" #onionsInput="ngModel" ngModel id="onions" name="onions">
+                            <label for="onions">Onions</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" #caramelizedonionsInput="ngModel" ngModel id="caramelizedonions" name="caramelizedonions">
+                            <label for="caramelizedonions">Caramelized Onions</label>
+                            <input type="checkbox" #friedonionsInput="ngModel" ngModel id="friedonions" name="friedonions">
+                            <label for="friedonions">Fried Onions</label>    
+                        </div>
+                    </div>
+                    <label>Condiment</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" #flakysaltInput="ngModel" ngModel id="flakysalt" name="flakysalt">
+                            <label for="flakysalt">Flaky Salt</label>
+                            <input type="checkbox" #blackpepperInput="ngModel" ngModel id="blackpepper" name="blackpepper">
+                            <label for="blackpepper">Black Peppe</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" #garlicpowderInput="ngModel" ngModel id="garlicpowder" name="garlicpowder">
+                            <label for="garlicpowder">Garlic Powder</label> 
+                        </div>
+                    </div>
+                    <label>Other</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" #eggInput="ngModel" ngModel id="egg" name="egg">
+                            <label for="egg">Egg</label>   
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p>Go back to burgers...<a routerLink="/burgers" style="font-size:20px;color:greenyellow;">Here!</a></p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<!-- <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" #descriptionInput="ngModel" ngModel required min="3" id="description" style="border-radius: 0px;" placeholder="Information about the Burger"
+        name="description"></textarea
+        [class.errorred]="descriptionInput.touched && !descriptionInput.valid">
+    </textarea>
+</div>
+<ng-container *ngIf="descriptionInput.touched">
+    <ng-container *ngIf="descriptionInput?.errors?.['required']">
+        <div class="form-group">
+            <label for="error" style="color: red;">Description is required!</label>
+             <input type="text"  class="form-control" value="">
+        </div>
+    </ng-container>
+    <ng-container *ngIf="descriptionInput?.errors?.['minlength']">
+        <div class="form-group">
+            <label for="error" style="color: red;">Description must be at least 3 characters!</label>
+             <input type="text"  class="form-control" value="">
+        </div>
+    </ng-container>
+</ng-container> -->

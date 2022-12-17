@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { getRoleByName } = require('../services/roleService');
 const { blacklistToken } = require('../services/tokenBklacklistService');
+const { Types } = require('mongoose');
 const JWT_SECRET = 'zxc';
 
 async function createAdmin(){
@@ -23,6 +24,14 @@ async function getAdmin(){
     const admin = await User.findOne({username}).collation({locale: 'en', strength: 2});
     return admin._id;
 }
+
+async function getUserId(id){
+    if(Types.ObjectId.isValid(id)){
+        return await User.findById(id);
+    }else{
+        return undefined;
+    };;
+};
 
 async function getUserById(id){
     const user = await User.findById(id);
@@ -115,6 +124,7 @@ function parseToken(token){
 module.exports = {
     createAdmin,
     getAdmin,
+    getUserId,
     countUsers, 
     getUserById,
     register,

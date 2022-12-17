@@ -7,6 +7,7 @@ import { PizzaIngredientDetailsComponent } from './pizza-ingredient-details/pizz
 import { PizzaDetailsComponent } from './pizza-details/pizza-details.component';
 import { PizzaDeleteComponent } from './pizza-delete/pizza-delete.component';
 import { PizzaCreateComponent } from './pizza-create/pizza-create.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { PizzaCreateComponent } from './pizza-create/pizza-create.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PizzaModule { };

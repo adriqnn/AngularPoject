@@ -1,1 +1,196 @@
-<p>pizza-create works!</p>
+<main>
+    <section class="py-5" id="register-page">
+        <div class="container register-page">
+            <h1 style="font-family: cursive;">
+                <h1 style="font-family: cursive; color: gold; text-decoration: underline;">Pizza & Burger Spot</h1>
+                <p class="lead" style="font-style: italic;font-family: cursive;">Create a Pizza here!</p>
+                <p> </p>
+                <p class="line"></p>
+            </h1>
+            <div class="register">
+                <form #form="ngForm" (ngSubmit)="createPizzaHandler(form)">
+                    <ng-container *ngIf="errorMsg">
+                        <div class="form-group">
+                            <ng-container>{{removeMsg()}}</ng-container>
+                            <label for="error" style="color: red;">{{msg}}</label>
+                            <!-- <input type="text"  class="form-control" value=""> -->
+                        </div>
+                    </ng-container>
+                    <div class="form-group">
+                        <label for="name">Pizza Name</label>
+                        <input type="text" #nameInput="ngModel" ngModel required minlength="3" class="form-control" id="name" placeholder="Pizza Name" name="name"
+                            value=""
+                            [class.errorred]="nameInput.touched && !nameInput.valid">
+                    </div>
+                    <ng-container *ngIf="nameInput.touched">
+                        <ng-container *ngIf="nameInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Pizza name is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="nameInput?.errors?.['minlength']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Pizza name must be at least 3 characters!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <div class="form-group">
+                        <label for="weight">Pizza Weight</label>
+                        <input type="number" #weightInput="ngModel" ngModel required min="5" class="form-control" id="weight" placeholder="Pizza Weight" name="weight"
+                            value=""
+                            [class.errorred]="weightInput.touched && !weightInput.valid">
+                    </div>
+                    <ng-container *ngIf="weightInput.touched">
+                        <ng-container *ngIf="weightInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Pizza weight is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="weightInput?.errors?.['min']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Pizza weight must be at least 5 grams!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <div class="form-group">
+                        <label for="description">Pizza Description</label>
+                        <input type="text" #descriptionInput="ngModel" ngModel required minlength="3" class="form-control" id="description" placeholder="Pizza Description" name="description"
+                            value=""
+                            [class.errorred]="descriptionInput.touched && !descriptionInput.valid">
+                    </div>
+                    <ng-container *ngIf="descriptionInput.touched">
+                        <ng-container *ngIf="descriptionInput?.errors?.['required']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Pizza description is required!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="descriptionInput?.errors?.['minlength']">
+                            <div class="form-group">
+                                <label for="error" style="color: red;">Pizza description must be at least 3 characters!</label>
+                                <!-- <input type="text"  class="form-control" value=""> -->
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <label>Bun</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="radio" id="regularbun" name="bun" value="Regular Bun">
+                            <label for="regularbun">Regular Bun</label>
+                            <input type="radio" id="sesameseedbun" name="bun" value="Sesame Seed Bun">
+                            <label for="sesameseedbun">Sesame Seed Bun</label>    
+                        </div>
+                        <div>
+                            <input type="radio" id="briochebun" name="bun" value="Brioche Bun" style="position: -ms-page;">
+                            <label for="briochebun">Brioche Bun</label>   
+                        </div>
+                    </div>
+                    <label>Sauce</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male" hidden>
+                            <label for="male" hidden>Male</label>    
+                        </div>
+                    </div>
+                    <label>Cheese</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                    </div>
+                    <label>Meat</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                    </div>
+                    <label>Vegetables</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                    </div>
+                    <label>Condiment</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                    </div>
+                    <label>Other</label>
+                    <div class="ingredientsbuild">
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="checkbox" id="male" name="gender" value="male">
+                            <label for="male">Male</label>    
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p>Go back to burgers...<a routerLink="/burgers" style="font-size:20px;color:greenyellow;">Here!</a></p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>

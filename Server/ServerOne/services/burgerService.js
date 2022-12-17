@@ -1,6 +1,6 @@
 const Burger = require('../models/Burger');
 const { Types } = require('mongoose');
-const { getAdmin } = require('./userService');
+const { getAdmin, getUserById, getUserId } = require('./userService');
 const { getBurgerIngredientByName } = require('./burgerIngredientService');
 
 async function getAllBurgers(){
@@ -36,11 +36,29 @@ async function deleteById(id){
     return Burger.findByIdAndDelete(id);
 };
 
+async function createRequestBurger(item){
+    const helper = [];
+    helper.push(item.main.bun);
+    const ingredients = Object.values(item.secondary).filter(e => e != '').map(e => helper.push(e));
+    const saved = await Promise.all(helper.map(e => getBurgerIngredientByName(e)));
+    const owner = await getUserId(item.owner);
+    const burger = {
+        name: item.main.name,
+        weight: item.main.weight,
+        picture: '/assets/pictures/burgers/burger.png',
+        description: item.main.description,
+        ingredients: saved,
+        owner: owner._id
+    };
+    return await Burger.create(burger);
+};
+
 module.exports = {
     getAllBurgers,
     createBurgerForDB,
     createBurger,
     countBurgers,
     getById,
-    deleteById
+    deleteById,
+    createRequestBurger
 };

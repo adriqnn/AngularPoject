@@ -1,4 +1,4 @@
-const { getAllBurgers, getById, deleteById } = require('../services/burgerService');
+const { getAllBurgers, getById, deleteById, createRequestBurger } = require('../services/burgerService');
 const { parseError } = require('../util/parser');
 const session = require('../middlewares/session');
 
@@ -33,6 +33,18 @@ burgerController.delete('/delete/:id', session(), async (req, res) => {
         await deleteById(req.params.id);
         res.status(204).end();
     }catch(err){
+        const message = parseError(err);
+        res.status(400).json({message});
+    };
+});
+
+burgerController.post('/create/new', async (req, res) => {
+    const item = req.body.burger;
+    try{
+        const burger = await createRequestBurger(item);
+        res.status(200).send({burger});
+    }catch(err){
+        console.log(err);
         const message = parseError(err);
         res.status(400).json({message});
     };

@@ -7,6 +7,7 @@ import { BurgerIngredientDetailsComponent } from './burger-ingredient-details/bu
 import { BurgerDetailsComponent } from './burger-details/burger-details.component';
 import { BurgerDeleteComponent } from './burger-delete/burger-delete.component';
 import { BurgerCreateComponent } from './burger-create/burger-create.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { BurgerCreateComponent } from './burger-create/burger-create.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class BurgerModule { };

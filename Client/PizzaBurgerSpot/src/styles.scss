@@ -273,6 +273,14 @@ body {
     padding-top: 5px;
     margin-bottom: 15px;
   }
+
+  .ingredientsbuild {
+    box-shadow: 0px -2px 20px -1px #7dff59, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: .25rem;
+    padding-top: 5px;
+    margin-bottom: 15px;
+  }
   
   .no-ingredients {
     width: 100%;
@@ -341,12 +349,20 @@ body {
   .gender label:first-of-type {
     margin-right: 60px;
   }
+
+  .ingredientsbuild label:first-of-type {
+    margin-right: 60px;
+  }
   
   label, .container>h1 {
     color: white;
   }
   
   .gender label:hover, .gender input:hover {
+    cursor: pointer;
+  }
+
+  .ingredientsbuild label:hover, .ingredientsbuild input:hover {
     cursor: pointer;
   }
   

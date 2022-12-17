@@ -31,4 +31,8 @@ export class BurgerService {
   deleteBurger(id: string){
     return this.httpClient.delete<null>(`[authenticate]${apiURL}/burger/delete/${id}`);
   };
+
+  createBurger(burger: any){
+    return this.httpClient.post<IBurger>(`[authenticate]${apiURL}/burger/create/new`, {burger});
+  }
 };
