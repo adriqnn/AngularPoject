@@ -30,6 +30,15 @@
                     <textarea class="lead" disabled style="font-style: italic;font-family: cursive;">{{burger?.description}}</textarea>
                 </div>
             </div>
+            <div class="row text-center">
+                <ng-container *ngIf="burger?.owner == user">
+                    <div class="col-lg-4 col-md-6 mb-4">                        
+                        <div >
+                            <a [routerLink]="['/burgers','item', 'delete', burger?._id + '[!&%$!]' + burger?.owner + '[!&%$!]' + user]" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </ng-container>         
+            </div>
         </div>
     </section>
 </main>

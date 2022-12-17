@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { BurgerDeleteComponent } from './burger/burger-delete/burger-delete.component';
 import { BurgerDetailsComponent } from './burger/burger-details/burger-details.component';
 import { BurgerIngredientDetailsComponent } from './burger/burger-ingredient-details/burger-ingredient-details.component';
 import { BurgerIngredientComponent } from './burger/burger-ingredient/burger-ingredient.component';
@@ -17,6 +18,7 @@ import { AuthenticatedActivate } from './core/guards/authenticated.activate';
 import { UnAuthenticatedActivate } from './core/guards/unauthenticated.activate';
 import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { PizzaDeleteComponent } from './pizza/pizza-delete/pizza-delete.component';
 import { PizzaDetailsComponent } from './pizza/pizza-details/pizza-details.component';
 import { PizzaIngredientDetailsComponent } from './pizza/pizza-ingredient-details/pizza-ingredient-details.component';
 import { PizzaIngredientComponent } from './pizza/pizza-ingredient/pizza-ingredient.component';
@@ -130,6 +132,26 @@ const routes: Routes = [
     data: {
         title: 'Pizzas',
         loginRequired: false
+    }
+},
+{
+    path:'burgers/item/delete/:id',
+    canActivate: [UnAuthenticatedActivate],
+    component: BurgerDeleteComponent,
+    data: {
+        title: 'Burgers',
+        loginRequired: true,
+        unAutenticated: true
+    }
+},
+{
+    path:'pizzas/item/delete/:id',
+    canActivate: [UnAuthenticatedActivate],
+    component: PizzaDeleteComponent,
+    data: {
+        title: 'Pizzas',
+        loginRequired: true,
+        unAutenticated: true
     }
 },
 {

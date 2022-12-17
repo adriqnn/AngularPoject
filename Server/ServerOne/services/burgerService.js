@@ -32,10 +32,15 @@ async function getById(id){
     };
 };
 
+async function deleteById(id){
+    return Burger.findByIdAndDelete(id);
+};
+
 module.exports = {
     getAllBurgers,
     createBurgerForDB,
     createBurger,
     countBurgers,
-    getById
+    getById,
+    deleteById
 };

@@ -32,10 +32,15 @@ async function getById(id){
     };
 };
 
+async function deleteById(id){
+    return Pizza.findByIdAndDelete(id);
+};
+
 module.exports = {
     getAllPizzas,
     createPizzaForDB,
     createPizza,
     countPizzas,
-    getById
+    getById,
+    deleteById
 };

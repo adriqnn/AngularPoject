@@ -36,7 +36,7 @@
                     </div>
                 </ng-container>
             </ng-container>
-            <ng-container *ngIf="!pizzas">
+            <ng-container *ngIf="!pizzas || pizzas.length == 0">
                 <div class="no-ingredients">
                     <img src="/assets/pictures/main/404missin.png"/>
                     <p class="lead">Please try again later...</p>

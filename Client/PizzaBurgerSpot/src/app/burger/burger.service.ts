@@ -27,4 +27,8 @@ export class BurgerService {
   loadBurger(id: string){
     return this.httpClient.get<IBurger>(`${apiURL}/burger/${id}`);
   };
+
+  deleteBurger(id: string){
+    return this.httpClient.delete<null>(`[authenticate]${apiURL}/burger/delete/${id}`);
+  };
 };
