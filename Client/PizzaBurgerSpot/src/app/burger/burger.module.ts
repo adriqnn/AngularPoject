@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { BurgerIngredientDetailsComponent } from './burger-ingredient-details/burger-ingredient-details.component';
 import { BurgerDetailsComponent } from './burger-details/burger-details.component';
 import { BurgerDeleteComponent } from './burger-delete/burger-delete.component';
+import { BurgerCreateComponent } from './burger-create/burger-create.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { BurgerDeleteComponent } from './burger-delete/burger-delete.component';
     BurgerIngredientComponent,
     BurgerIngredientDetailsComponent,
     BurgerDetailsComponent,
-    BurgerDeleteComponent
+    BurgerDeleteComponent,
+    BurgerCreateComponent
   ],
   imports: [
     CommonModule,
