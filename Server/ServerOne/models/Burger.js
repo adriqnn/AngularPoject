@@ -25,7 +25,7 @@ const burgerSchema = new Schema({
     ingredients:{
         type: [Types.ObjectId],
         default: [],
-        ref: 'PizzaIngredient',
+        ref: 'BurgerIngredient',
         required: true
     },
     owner:{

@@ -15,5 +15,32 @@
             </h1>
             <p class="lead" style="font-style: italic;font-family: cursive; font-size: 22px">Pizzas List:</p>
         </header>
+        <div class="row text-center">
+            <ng-container *ngIf="pizzas">
+                <ng-container *ngFor="let pizza of pizzas let i = index">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top"
+                                src={{pizza.picture}}
+                                alt="pizzaIngredient">
+                            <div class="card-body">
+                                <h5 class="card-title2"><span>{{pizza.name}}</span></h5>
+                                <h5 class="mt-4 card-info"> Type: <span></span></h5>
+                                <h5 class="mt-4 card-info"> Weight: {{pizza.weight}}g<span></span></h5>
+                            </div>
+                            <div class="card-footer">
+                                <a [routerLink]="['/burgers','item', pizza._id]" class="btn btn-success">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="!pizzas">
+                <div class="no-ingredients">
+                    <img src="/assets/pictures/main/404missin.png"/>
+                    <p class="lead">Please try again later...</p>
+                </div>
+            </ng-container>          
+        </div>
     </section>
 </main>

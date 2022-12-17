@@ -18,6 +18,12 @@ async function createAdmin(){
     });
 };
 
+async function getAdmin(){
+    const username = 'admin';
+    const admin = await User.findOne({username}).collation({locale: 'en', strength: 2});
+    return admin._id;
+}
+
 async function getUserById(id){
     const user = await User.findById(id);
     if(!user){
@@ -108,6 +114,7 @@ function parseToken(token){
 
 module.exports = {
     createAdmin,
+    getAdmin,
     countUsers, 
     getUserById,
     register,

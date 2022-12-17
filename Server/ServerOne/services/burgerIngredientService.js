@@ -5,6 +5,11 @@ async function getAllBurgerIngredient(){
     return BurgerIngredient.find({}).sort({_id: 1});
 };
 
+async function getBurgerIngredientByName(name){
+    const ingredient = await BurgerIngredient.findOne({name}).collation({locale: 'en', strength: 2});
+    return ingredient._id;
+};
+
 async function createBurgerIngredient(burgerIngredient){
     return await BurgerIngredient.create(burgerIngredient);
 };
@@ -23,6 +28,7 @@ async function getById(id){
 
 module.exports = {
     getAllBurgerIngredient,
+    getBurgerIngredientByName,
     createBurgerIngredient,
     countBurgerIngredients,
     getById

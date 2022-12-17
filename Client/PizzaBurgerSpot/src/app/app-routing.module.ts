@@ -90,6 +90,7 @@ const routes: Routes = [
 },
 {
     path:'pizzas',
+    pathMatch: 'full',
     component: PizzaComponent,
     data: {
         title: 'Pizzas',
@@ -98,6 +99,7 @@ const routes: Routes = [
 },
 {
     path:'burgers',
+    pathMatch: 'full',
     component: BurgerComponent,
     data: {
         title: 'Burgers',
@@ -106,6 +108,7 @@ const routes: Routes = [
 },
 {
     path:'pizzas/pizzaIngredient',
+    pathMatch: 'full',
     component: PizzaIngredientComponent,
     data: {
         title: 'Pizza Ingredients',
@@ -114,6 +117,7 @@ const routes: Routes = [
 },
 {
     path:'burgers/burgerIngredient',
+    pathMatch: 'full',
     component: BurgerIngredientComponent,
     data: {
         title: 'Burger Ingredients',

@@ -15,5 +15,34 @@
             </h1>
             <p class="lead" style="font-style: italic;font-family: cursive; font-size: 22px">Burgers List:</p>
         </header>
+        <div class="row text-center">
+            <ng-container *ngIf="burgers">
+                <ng-container *ngFor="let burger of burgers let i = index">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top2"
+                                src={{burger.picture}}
+                                alt="pizzaIngredient">
+                            <div class="card-body">
+                                <h5 class="card-title2"><span>{{burger.name}}</span></h5>
+                                <h5 class="mt-4 card-info"> Weight: {{burger.weight}}g<span></span></h5>
+                            </div>
+                            <div class="card-footer">
+                                <a [routerLink]="['/burgers','item', burger._id]" class="btn btn-success">Details</a>
+                            </div>
+                            <!-- <ng-container *ngIf="user?._id == burger?.owner">
+                                <a [routerLink]="['/burgers','burgerIngredient', burger._id]" class="btn btn-success">Delete</a>
+                            </ng-container> -->
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="!burgers">
+                <div class="no-ingredients">
+                    <img src="/assets/pictures/main/404missin.png"/>
+                    <p class="lead">Please try again later...</p>
+                </div>
+            </ng-container>          
+        </div>
     </section>
 </main>
