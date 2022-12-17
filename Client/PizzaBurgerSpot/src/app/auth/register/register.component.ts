@@ -40,6 +40,7 @@ export class RegisterComponent implements OnInit {
         sessionStorage.setItem('token', value.token);
         form.reset();
         this.router.navigate(['/']);
+        window.location.reload();
       },
       error: (err) => {
         this.msg = err.error.message;

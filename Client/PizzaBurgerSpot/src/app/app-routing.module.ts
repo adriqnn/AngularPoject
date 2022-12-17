@@ -11,6 +11,8 @@ import { BurgerIngredientResolver } from './burger/resolvers/burger.ingredient.r
 import { AboutComponent } from './core/about/about.component';
 import { ContactsComponent } from './core/contacts/contacts.component';
 import { ErrorComponent } from './core/error/error.component';
+import { AuthenticatedActivate } from './core/guards/authenticated.activate';
+import { UnAuthenticatedActivate } from './core/guards/unauthenticated.activate';
 import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { PizzaIngredientDetailsComponent } from './pizza/pizza-ingredient-details/pizza-ingredient-details.component';
@@ -49,33 +51,41 @@ const routes: Routes = [
   {
     path:'auth/login',
     component: LoginComponent,
+    canActivate: [AuthenticatedActivate],
     data: {
         title: 'Login',
-        loginRequired: false
+        loginRequired: false,
+        alreadyLoggedIn: true
     }
 },
 {
     path:'auth/register',
     component: RegisterComponent,
+    canActivate: [AuthenticatedActivate],
     data: {
         title: 'Register',
-        loginRequired: false
+        loginRequired: false,
+        alreadyLoggedIn: true
     }
 },
 {
     path:'auth/logout',
     component: LogoutComponent,
+    canActivate: [UnAuthenticatedActivate],
     data: {
         title: 'Logout',
-        loginRequired: true
+        loginRequired: true,
+        unAutenticated: true
     }
 },
 {
     path:'auth/profile',
     component: ProfileComponent,
+    canActivate: [UnAuthenticatedActivate],
     data: {
         title: 'Profile',
-        loginRequired: false
+        loginRequired: false,
+        unAutenticated: true
     }
 },
 {

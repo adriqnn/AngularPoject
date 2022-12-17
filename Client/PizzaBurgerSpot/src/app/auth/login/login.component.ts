@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     const params = this.activatedRoute.queryParams.subscribe(params => {
       this.redirectMsg = params['data'];
-      console.log(this.redirectMsg);
+      // console.log(this.redirectMsg);
     });
   };
 
@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('token', value.token);
         form.reset();
         this.router.navigate(['/']);
+        window.location.reload();
       },
       error: (err) => {
         this.msg = err.error.message;
