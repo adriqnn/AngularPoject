@@ -4,10 +4,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { BurgerDetailsComponent } from './burger/burger-details/burger-details.component';
 import { BurgerIngredientDetailsComponent } from './burger/burger-ingredient-details/burger-ingredient-details.component';
 import { BurgerIngredientComponent } from './burger/burger-ingredient/burger-ingredient.component';
 import { BurgerComponent } from './burger/burger/burger.component';
 import { BurgerIngredientResolver } from './burger/resolvers/burger.ingredient.resolver';
+import { BurgerResolver } from './burger/resolvers/burger.resolver';
 import { AboutComponent } from './core/about/about.component';
 import { ContactsComponent } from './core/contacts/contacts.component';
 import { ErrorComponent } from './core/error/error.component';
@@ -15,9 +17,11 @@ import { AuthenticatedActivate } from './core/guards/authenticated.activate';
 import { UnAuthenticatedActivate } from './core/guards/unauthenticated.activate';
 import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { PizzaDetailsComponent } from './pizza/pizza-details/pizza-details.component';
 import { PizzaIngredientDetailsComponent } from './pizza/pizza-ingredient-details/pizza-ingredient-details.component';
 import { PizzaIngredientComponent } from './pizza/pizza-ingredient/pizza-ingredient.component';
 import { PizzaComponent } from './pizza/pizza/pizza.component';
+import { PizzaResolver } from './pizza/resolvers/pizza .resolver';
 import { PizzaIngredientResolver } from './pizza/resolvers/pizza.ingredient.resolver';
 
 const routes: Routes = [
@@ -103,6 +107,28 @@ const routes: Routes = [
     component: BurgerComponent,
     data: {
         title: 'Burgers',
+        loginRequired: false
+    }
+},
+{
+    path:'burgers/item/:id',
+    component: BurgerDetailsComponent,
+    resolve: {
+        burger: BurgerResolver
+    },
+    data: {
+        title: 'Burgers',
+        loginRequired: false
+    }
+},
+{
+    path:'pizzas/item/:id',
+    component: PizzaDetailsComponent,
+    resolve: {
+        pizza: PizzaResolver
+    },
+    data: {
+        title: 'Pizzas',
         loginRequired: false
     }
 },

@@ -2,16 +2,18 @@
     <section class="container" id="pizzas-main">
         <header class="ingredient">
             <h1 style="font-family: cursive;">
-                <h1 style="font-family: cursive;">Pizza & Burger Spot</h1>
+                <h1 style="font-family: cursive; color: gold; text-decoration: underline;">Pizza & Burger Spot</h1>
                 <p class="lead" style="font-style: italic;font-family: cursive;">We make the best Pizzas in town and here is a list of our Pizzas!</p>
                 <p> </p>
+                <p class="line"></p>
+                <p>&nbsp;&nbsp;&nbsp;</p>
                 <ng-container *ngIf="user">
-                    <a routerLink="/pizzas/create">Add Pizza</a> 
+                    <a routerLink="/pizzas/create" style="color: gold;">Add Pizza</a> 
                     <!-- |
                     <a routerLink="/pizzas">Pizza Pies</a>  -->
                     | 
                 </ng-container>
-                <a routerLink="/pizzas/pizzaIngredient">Ingredients</a>
+                <a routerLink="/pizzas/pizzaIngredient" style="color: gold;">Ingredients</a>
             </h1>
             <p class="lead" style="font-style: italic;font-family: cursive; font-size: 22px">Pizzas List:</p>
         </header>
@@ -25,11 +27,10 @@
                                 alt="pizzaIngredient">
                             <div class="card-body">
                                 <h5 class="card-title2"><span>{{pizza.name}}</span></h5>
-                                <h5 class="mt-4 card-info"> Type: <span></span></h5>
                                 <h5 class="mt-4 card-info"> Weight: {{pizza.weight}}g<span></span></h5>
                             </div>
                             <div class="card-footer">
-                                <a [routerLink]="['/burgers','item', pizza._id]" class="btn btn-success">Details</a>
+                                <a [routerLink]="['/pizzas','item', pizza._id]" class="btn btn-success">Details</a>
                             </div>
                         </div>
                     </div>

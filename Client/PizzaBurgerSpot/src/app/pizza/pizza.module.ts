@@ -4,12 +4,14 @@ import { PizzaComponent } from './pizza/pizza.component';
 import { PizzaIngredientComponent } from './pizza-ingredient/pizza-ingredient.component';
 import { RouterModule } from '@angular/router';
 import { PizzaIngredientDetailsComponent } from './pizza-ingredient-details/pizza-ingredient-details.component';
+import { PizzaDetailsComponent } from './pizza-details/pizza-details.component';
 
 @NgModule({
   declarations: [
     PizzaComponent,
     PizzaIngredientComponent,
-    PizzaIngredientDetailsComponent
+    PizzaIngredientDetailsComponent,
+    PizzaDetailsComponent
   ],
   imports: [
     CommonModule,

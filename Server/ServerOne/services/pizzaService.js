@@ -26,7 +26,7 @@ async function countPizzas(){
 
 async function getById(id){
     if(Types.ObjectId.isValid(id)){
-        return await Pizza.findById(id);
+        return await Pizza.findById(id).populate('ingredients');
     }else{
         return undefined;
     };

@@ -1,0 +1,35 @@
+<main>
+    <section class="py-5 details" id="pizza-ingredient-details-page">
+        <div class="container">
+            <div class="item-details">
+                <h1 style="font-family: cursive; color: gold; text-decoration: underline;">Pizza Burger Spot</h1>
+            </div>
+            <p class="line"></p>
+            <div class="item-info">
+                <p class="lead" style="font-style: italic;font-family: cursive; color: gold;">Pizza details for {{pizza?.name}}:</p>
+                <p class="lead" style="font-size: 18px; font-style: italic;font-family: cursive;">Weight: {{pizza?.weight}}g</p>
+            </div>
+            <p class="line"></p>
+            <div class="item-info">
+                <p>&nbsp;&nbsp;&nbsp;</p>
+                <p class="lead" style="font-style: italic;font-family: cursive; color: gold;">Ingredients for {{pizza?.name}}:</p>
+                <ng-container *ngFor="let ingredient of pizza?.ingredients">
+                    <p class="lead" style="font-size: 18px; font-style: italic;font-family: cursive;">{{ingredient.name}} - {{ingredient.description}}</p>
+                </ng-container>
+                <p>&nbsp;&nbsp;&nbsp;</p>
+            </div>
+            <p class="line"></p>
+            <div class="item-picanddesc">
+                <div>
+                    <img class="img-fluid rounded"
+                        src={{pizza?.picture}}
+                        alt="pizza-ingredient-image">
+                </div>
+                <div class="item-desc">
+                    <h5 style="font-style: italic;font-family: cursive;">Description</h5>
+                    <textarea class="lead" disabled style="font-style: italic;font-family: cursive;">{{pizza?.description}}</textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -26,7 +26,7 @@ async function countBurgers(){
 
 async function getById(id){
     if(Types.ObjectId.isValid(id)){
-        return await Burger.findById(id);
+        return await Burger.findById(id).populate('ingredients');
     }else{
         return undefined;
     };

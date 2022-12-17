@@ -1,4 +1,5 @@
 const { getAllPizzas, getById } = require('../services/pizzaService');
+const { parseError } = require('../util/parser');
 
 const pizzaController = require('express').Router();
 
@@ -18,6 +19,7 @@ pizzaController.get('/:id', async (req, res) => {
         if(!item){
             throw new Error('Item not in the database`');
         }
+        res.json(item);
     }catch(err) {
         const message = parseError(err);
         res.status(400).json({message});

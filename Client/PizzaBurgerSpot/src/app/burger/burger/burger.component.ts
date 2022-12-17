@@ -21,7 +21,6 @@ export class BurgerComponent implements OnInit {
     this.burgerService.loadBurgers().subscribe({
       next: (value) => {
         this.burgers = value;
-        console.log(value);
       },
       error: (err) => {
         this.errorFetchingData = true;
