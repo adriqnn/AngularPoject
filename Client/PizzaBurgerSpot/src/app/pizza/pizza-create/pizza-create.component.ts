@@ -28,6 +28,8 @@ export class PizzaCreateComponent implements OnInit {
 
   createPizzaHandler(form: NgForm): void{
     if(form.invalid){
+        this.msg = 'Please fill out the form!';
+        this.errorMsg = true;
       return;
     };
     const {name, weight, description, dough, ...rest } = form.value;

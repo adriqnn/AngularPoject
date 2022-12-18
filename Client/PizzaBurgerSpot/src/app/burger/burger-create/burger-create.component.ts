@@ -28,6 +28,8 @@ export class BurgerCreateComponent implements OnInit {
 
   createBurgerHandler(form: NgForm): void{
     if(form.invalid){
+      this.msg = 'Please fill out the form!';
+      this.errorMsg = true;
       return;
     };
     const {name, weight, description, bun, ...rest } = form.value;
