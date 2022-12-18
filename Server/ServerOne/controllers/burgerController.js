@@ -38,13 +38,12 @@ burgerController.delete('/delete/:id', session(), async (req, res) => {
     };
 });
 
-burgerController.post('/create/new', async (req, res) => {
+burgerController.post('/create/new', session(), async (req, res) => {
     const item = req.body.burger;
     try{
         const burger = await createRequestBurger(item);
         res.status(200).send({burger});
     }catch(err){
-        console.log(err);
         const message = parseError(err);
         res.status(400).json({message});
     };

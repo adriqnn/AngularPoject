@@ -161,10 +161,10 @@
         "description": "Flaky Salt condiment."
     },
     {
-        "name": "Garlic Pouder",
+        "name": "Garlic Powder",
         "weight": 10,
         "type": "Condiment",
         "picture": "/assets/pictures/pizza-ingredients/garlicpowder.png",
-        "description": "Garlic Pouder condiment."
+        "description": "Garlic Powder condiment."
     }
 ]

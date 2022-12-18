@@ -34,5 +34,5 @@ export class BurgerService {
 
   createBurger(burger: any){
     return this.httpClient.post<IBurger>(`[authenticate]${apiURL}/burger/create/new`, {burger});
-  }
+  };
 };

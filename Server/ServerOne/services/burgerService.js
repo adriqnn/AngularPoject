@@ -1,6 +1,6 @@
 const Burger = require('../models/Burger');
 const { Types } = require('mongoose');
-const { getAdmin, getUserById, getUserId } = require('./userService');
+const { getAdmin, getUserId } = require('./userService');
 const { getBurgerIngredientByName } = require('./burgerIngredientService');
 
 async function getAllBurgers(){

@@ -31,7 +31,6 @@ export class BurgerCreateComponent implements OnInit {
       return;
     };
     const {name, weight, description, bun, ...rest } = form.value;
-
     const main = {name, weight, description, bun};
     const secondary = {
       bacon: rest.bacon == true ? 'Bacon' : '',

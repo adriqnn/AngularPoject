@@ -30,5 +30,9 @@ export class PizzaService {
 
   deletePizza(id: string){
     return this.httpClient.delete<null>(`[authenticate]${apiURL}/pizza/delete/${id}`);
-  }
+  };
+
+  createPizza(pizza: any){
+    return this.httpClient.post<IPizza>(`[authenticate]${apiURL}/pizza/create/new`, {pizza});
+  };
 };

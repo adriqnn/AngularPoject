@@ -76,117 +76,102 @@
                             </div>
                         </ng-container>
                     </ng-container>
-                    <label>Bun</label>
+                    <label>Dough</label>
                     <div class="ingredientsbuild">
                         <div>
-                            <input type="radio" id="regularbun" name="bun" value="Regular Bun">
-                            <label for="regularbun">Regular Bun</label>
-                            <input type="radio" id="sesameseedbun" name="bun" value="Sesame Seed Bun">
-                            <label for="sesameseedbun">Sesame Seed Bun</label>    
+                            <input type="radio" #traditionaldoughInput="ngModel" ngModel id="traditionaldough" name="dough" value="Traditional Dough">
+                            <label for="traditionaldough">Traditional Dough</label>
+                            <input type="radio" #italianstyleInput="ngModel" ngModel id="italianstyle" name="dough" value="Italian Style">
+                            <label for="italianstyle">Italian Style</label>    
                         </div>
                         <div>
-                            <input type="radio" id="briochebun" name="bun" value="Brioche Bun" style="position: -ms-page;">
-                            <label for="briochebun">Brioche Bun</label>   
+                            <input type="radio" #thincruststyleInput="ngModel" ngModel id="thincruststyle" name="dough" value="Thin Crust Style">
+                            <label for="thincruststyle">Thin Crust Style</label>
                         </div>
                     </div>
                     <label>Sauce</label>
                     <div class="ingredientsbuild">
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
+                            <input type="checkbox" #tomatosauceInput="ngModel" ngModel id="tomatosauce" name="tomatosauce">
+                            <label for="tomatosauce">Tomato Sauce</label>
+                            <input type="checkbox" #ketchupInput="ngModel" ngModel id="ketchup" name="ketchup">
+                            <label for="ketchup">Ketchup</label>    
                         </div>
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
-                        </div>
-                        <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male" hidden>
-                            <label for="male" hidden>Male</label>    
+                            <input type="checkbox" #sourcreamInput="ngModel" ngModel id="sourcream" name="sourcream">
+                            <label for="sourcream">Sour Cream</label> 
                         </div>
                     </div>
                     <label>Cheese</label>
                     <div class="ingredientsbuild">
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
+                            <input type="checkbox" #ementalInput="ngModel" ngModel id="emental" name="emental">
+                            <label for="emental">Emental</label>
+                            <input type="checkbox" #mozzarellaInput="ngModel" ngModel id="mozzarella" name="mozzarella">
+                            <label for="mozzarella">Mozzarella</label>    
                         </div>
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
+                            <input type="checkbox" #smokedcheeseInput="ngModel" ngModel id="smokedcheese" name="smokedcheese">
+                            <label for="smokedcheese">Smoked Cheese</label> 
                         </div>
                     </div>
                     <label>Meat</label>
                     <div class="ingredientsbuild">
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
+                            <input type="checkbox" #pepperpniInput="ngModel" ngModel id="pepperoni" name="pepperoni">
+                            <label for="pepperoni">Pepperoni</label>
+                            <input type="checkbox" #chickenInput="ngModel" ngModel id="chicken" name="chicken">
+                            <label for="chicken">Chicken</label>    
                         </div>
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
+                            <input type="checkbox" #smokedhamInput="ngModel" ngModel id="smokedham" name="smokedham">
+                            <label for="smokedham">Smoked Ham</label> 
+                            <input type="checkbox" #smokedbaconInput="ngModel" ngModel id="smokedbacon" name="smokedbacon">
+                            <label for="smokedbacon">Smoked Bacon</label>
                         </div>
                     </div>
                     <label>Vegetables</label>
                     <div class="ingredientsbuild">
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
+                            <input type="checkbox" #tomatoesInput="ngModel" ngModel id="tomatoes" name="tomatoes">
+                            <label for="tomatoes">Tomatoes</label>
+                            <input type="checkbox" #mushroomsInput="ngModel" ngModel id="mushrooms" name="mushrooms">
+                            <label for="mushrooms">Mushrooms</label>    
                         </div>
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
+                            <input type="checkbox" #picklesInput="ngModel" ngModel id="pickles" name="pickles">
+                            <label for="pickles">Pickles</label>
+                            <input type="checkbox" #cornInput="ngModel" ngModel id="corn" name="corn">
+                            <label for="corn">Corn</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" #greenpepperInput="ngModel" ngModel id="greenpeppers" name="greenpeppers">
+                            <label for="greenpeppers">Green Peppers</label>
+                            <input type="checkbox" #onionsInput="ngModel" ngModel id="onions" name="onions">
+                            <label for="onions">Onions</label>    
+                        </div>
+                        <div>
+                            <input type="checkbox" #olivesInput="ngModel" ngModel id="olives" name="olives">
+                            <label for="olives">Olives</label> 
                         </div>
                     </div>
                     <label>Condiment</label>
                     <div class="ingredientsbuild">
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
+                            <input type="checkbox" #flakysaltInput="ngModel" ngModel id="flakysalt" name="flakysalt">
+                            <label for="flakysalt">Flaky Salt</label>
+                            <input type="checkbox" #oreganoInput="ngModel" ngModel id="oregano" name="oregano">
+                            <label for="oregano">Oregano</label>    
                         </div>
                         <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
-                        </div>
-                    </div>
-                    <label>Other</label>
-                    <div class="ingredientsbuild">
-                        <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
-                        </div>
-                        <div>
-                            <input type="checkbox" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="checkbox" id="male" name="gender" value="male">
-                            <label for="male">Male</label>    
+                            <input type="checkbox" #garlicpowderInput="ngModel" ngModel id="garlicpowder" name="garlicpowder">
+                            <label for="garlicpowder">Garlic Powder</label> 
+                            <input type="checkbox" #basilInput="ngModel" ngModel id="basil" name="basil">
+                            <label for="basil">Basil</label> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <p>Go back to burgers...<a routerLink="/burgers" style="font-size:20px;color:greenyellow;">Here!</a></p>
+                        <p>Go back to burgers...<a routerLink="/pizzas" style="font-size:20px;color:greenyellow;">Here!</a></p>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

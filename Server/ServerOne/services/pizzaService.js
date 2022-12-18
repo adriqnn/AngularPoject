@@ -1,6 +1,6 @@
 const Pizza = require('../models/Pizza');
 const { Types } = require('mongoose');
-const { getAdmin } = require('./userService');
+const { getAdmin, getUserId } = require('./userService');
 const { getPizzaIngredientByName } = require('./pizzaIngredientService');
 
 async function getAllPizzas(){
@@ -36,8 +36,26 @@ async function deleteById(id){
     return Pizza.findByIdAndDelete(id);
 };
 
+async function createRequestPizza(item){
+    const helper = [];
+    helper.push(item.main.dough);
+    const ingredients = Object.values(item.secondary).filter(e => e != '').map(e => helper.push(e));
+    const saved = await Promise.all(helper.map(e => getPizzaIngredientByName(e)));
+    const owner = await getUserId(item.owner);
+    const pizza = {
+        name: item.main.name,
+        weight: item.main.weight,
+        picture: '/assets/pictures/pizzas/pizza.png',
+        description: item.main.description,
+        ingredients: saved,
+        owner: owner._id
+    };
+    return await Pizza.create(pizza);
+};
+
 module.exports = {
     getAllPizzas,
+    createRequestPizza,
     createPizzaForDB,
     createPizza,
     countPizzas,
