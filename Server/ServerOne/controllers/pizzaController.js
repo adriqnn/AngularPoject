@@ -1,4 +1,4 @@
-const { getAllPizzas, getById, deleteById, createRequestPizza } = require('../services/pizzaService');
+const { getAllPizzas, getById, deleteById, createRequestPizza, getPizzasByUserId } = require('../services/pizzaService');
 const { parseError } = require('../util/parser');
 const session = require('../middlewares/session');
 
@@ -48,6 +48,17 @@ pizzaController.post('/create/new', session(), async (req, res) => {
         const message = parseError(err);
         res.status(400).json({message});
     };
+});
+
+pizzaController.get('/user/:id', session(), async (req, res) => {
+    const id = req.params.id;
+    try{
+        const pizzas = await getPizzasByUserId(id);
+        res.status(200).json(pizzas);
+    }catch(err){
+        const message = parseError(err);
+        res.status(400).json({message});
+    }
 });
 
 module.exports = pizzaController;

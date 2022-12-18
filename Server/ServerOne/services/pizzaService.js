@@ -58,6 +58,10 @@ async function createRequestPizza(item){
     return await Pizza.create(pizza);
 };
 
+async function getPizzasByUserId(id){
+    return await Pizza.find({owner: id});
+};
+
 module.exports = {
     getAllPizzas,
     createRequestPizza,
@@ -65,5 +69,6 @@ module.exports = {
     createPizza,
     countPizzas,
     getById,
-    deleteById
+    deleteById,
+    getPizzasByUserId
 };

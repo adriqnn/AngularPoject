@@ -7,11 +7,27 @@
             <p style="font-style: italic;font-family: cursive; font-size: 18px; color:greenyellow">Created at: {{date}}<span></span></p>
         </div>
         <div class="profile-info">
-            <p> <span></span> counts</p>
-
+            <ng-container *ngIf="userBurgers && userPizzas">
+                <p> <span></span> Total Burgers and Pizzas -> {{userBurgers.length + userPizzas.length}}</p>
+            </ng-container>
+            <ng-container *ngIf="!userBurgers && !userPizzas">
+                <p> <span></span> Total Burgers and Pizzas -> No Records!</p>
+            </ng-container>
+            <p class="line"></p>
             <div class="trips-info">
-
-        
+                <ng-container *ngIf="userBurgers">
+                    <p style="font-family: cursive; color: gold; text-decoration: underline;">Burgers:</p>
+                    <ng-container *ngFor="let burger of userBurgers">
+                        <p>{{burger.name}}</p>
+                    </ng-container>
+                </ng-container>
+                <p class="line"></p>
+                <ng-container *ngIf="userPizzas">
+                    <p style="font-family: cursive; color: gold; text-decoration: underline;">Pizzas:</p>
+                    <ng-container *ngFor="let pizza of userPizzas">
+                        <p>{{pizza.name}}</p>
+                    </ng-container>
+                </ng-container>
             </div>
         </div>
     </section>

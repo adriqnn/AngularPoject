@@ -1,4 +1,4 @@
-const { getAllBurgers, getById, deleteById, createRequestBurger } = require('../services/burgerService');
+const { getAllBurgers, getById, deleteById, createRequestBurger, getBurgersByUserId } = require('../services/burgerService');
 const { parseError } = require('../util/parser');
 const session = require('../middlewares/session');
 
@@ -47,6 +47,17 @@ burgerController.post('/create/new', session(), async (req, res) => {
         const message = parseError(err);
         res.status(400).json({message});
     };
+});
+
+burgerController.get('/user/:id', session(), async (req, res) => {
+    const id = req.params.id;
+    try{
+        const burgers = await getBurgersByUserId(id);
+        res.status(200).json(burgers);
+    }catch(err){
+        const message = parseError(err);
+        res.status(400).json({message});
+    }
 });
 
 module.exports = burgerController;

@@ -35,4 +35,8 @@ export class PizzaService {
   createPizza(pizza: any){
     return this.httpClient.post<IPizza>(`[authenticate]${apiURL}/pizza/create/new`, {pizza});
   };
+
+  getUserPizzas(id: string){
+    return this.httpClient.get<IPizza[]>(`[authenticate]${apiURL}/pizza/user/${id}`);
+  };
 };

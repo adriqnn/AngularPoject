@@ -13,7 +13,7 @@ export class BurgerService {
   constructor(private httpClient: HttpClient) { }
 
   loadBurgerIngredients(){
-    return this.httpClient.get<IBurgerIngredient[]>(`${apiURL}/burgerIngredient`)
+    return this.httpClient.get<IBurgerIngredient[]>(`${apiURL}/burgerIngredient`);
   };
 
   loadBurgerIngredient(id: string){
@@ -35,4 +35,8 @@ export class BurgerService {
   createBurger(burger: any){
     return this.httpClient.post<IBurger>(`[authenticate]${apiURL}/burger/create/new`, {burger});
   };
+
+  getUserBurgers(id: string){
+    return this.httpClient.get<IBurger[]>(`[authenticate]${apiURL}/burger/user/${id}`);
+  }
 };

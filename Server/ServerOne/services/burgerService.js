@@ -58,6 +58,10 @@ async function createRequestBurger(item){
     return await Burger.create(burger);
 };
 
+async function getBurgersByUserId(id){
+    return await Burger.find({owner: id});
+};
+
 module.exports = {
     getAllBurgers,
     createBurgerForDB,
@@ -65,5 +69,6 @@ module.exports = {
     countBurgers,
     getById,
     deleteById,
-    createRequestBurger
+    createRequestBurger,
+    getBurgersByUserId
 };

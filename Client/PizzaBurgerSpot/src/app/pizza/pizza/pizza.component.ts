@@ -14,11 +14,11 @@ export class PizzaComponent implements OnInit {
   pizzas: IPizza[] | null = null;
   errorFetchingData = false;
 
-  constructor(private authService: AuthService, private pizzaServie: PizzaService) { }
+  constructor(private authService: AuthService, private pizzaService: PizzaService) { }
 
   ngOnInit(): void {
     this.user = this.authService.user;
-    this.pizzaServie.loadPizzas().subscribe({
+    this.pizzaService.loadPizzas().subscribe({
       next: (value) => {
         this.pizzas = value;
       },
