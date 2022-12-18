@@ -64,8 +64,9 @@ export class BurgerCreateComponent implements OnInit {
       next: () => {
         this.router.navigate(['/burgers']);
       },
-      error:() => {
-        this.router.navigate(['/burgers/create']);
+      error:(err) => {
+        this.msg = err.error.message;
+        this.errorMsg = true;
       }
     });
   };

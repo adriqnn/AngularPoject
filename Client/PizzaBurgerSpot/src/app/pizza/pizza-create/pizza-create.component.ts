@@ -61,8 +61,9 @@ export class PizzaCreateComponent implements OnInit {
       next: () => {
         this.router.navigate(['/pizzas']);
       },
-      error:() => {
-        this.router.navigate(['/pizzas/create']);
+      error:(err) => {
+        this.msg = err.error.message;
+        this.errorMsg = true;
       }
     });
   };

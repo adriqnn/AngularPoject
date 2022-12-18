@@ -37,6 +37,11 @@ async function deleteById(id){
 };
 
 async function createRequestPizza(item){
+    const name = item.main.name;
+    const existing = await Pizza.findOne({name}).collation({locale: 'en', strength: 2});
+    if(existing){
+        throw new Error('Pizza name already in the Database!');
+    };
     const helper = [];
     helper.push(item.main.dough);
     const ingredients = Object.values(item.secondary).filter(e => e != '').map(e => helper.push(e));

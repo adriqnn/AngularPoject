@@ -1,7 +1,13 @@
 <main>
     <section class="py-5" id="login-page">
         <div class="container login-page">
-            <h1>Login</h1>
+            <h1 style="font-family: cursive;">
+                <h1 style="font-family: cursive; color: gold; text-decoration: underline;">Pizza & Burger Spot</h1>
+                <p class="lead" style="font-style: italic;font-family: cursive;">Login...</p>
+                <p> </p>
+                <p class="line"></p>
+            </h1>
+            <p>&nbsp;</p>
             <div class="login">
                 <form #form="ngForm" (ngSubmit)="loginHandler(form)" >
                     <ng-container *ngIf="errorMsg">
