@@ -25,7 +25,7 @@ import { PizzaDetailsComponent } from './pizza/pizza-details/pizza-details.compo
 import { PizzaIngredientDetailsComponent } from './pizza/pizza-ingredient-details/pizza-ingredient-details.component';
 import { PizzaIngredientComponent } from './pizza/pizza-ingredient/pizza-ingredient.component';
 import { PizzaComponent } from './pizza/pizza/pizza.component';
-import { PizzaResolver } from './pizza/resolvers/pizza .resolver';
+import { PizzaResolver } from './pizza/resolvers/pizza.resolver';
 import { PizzaIngredientResolver } from './pizza/resolvers/pizza.ingredient.resolver';
 
 const routes: Routes = [
