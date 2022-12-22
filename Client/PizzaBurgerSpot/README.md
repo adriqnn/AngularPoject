@@ -1,4 +1,4 @@
-# PizzaBurgerSpot
+# PizzaBurgerSpot - Angular
 
 > Angular Client Project.\
 > JS Back-End API Service for the Angular Client.\
@@ -15,4 +15,4 @@
 > -Other\
 > ...\
 > More Functionality to come soon...\
-> Thanks!\
+> Thanks!
