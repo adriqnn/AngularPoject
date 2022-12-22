@@ -1,2 +1,2 @@
-# Angualr Project -> Client -> Pizza Burger Spot!\
+# Angualr Project -> Client -> Pizza Burger Spot!
 # REST API Server -> Server -> Server One!
